@@ -1,0 +1,83 @@
+---
+title: "ST558 Project 1"
+author: "Mu-Tien, Lee"
+date: "2020,09.04"
+output:
+  github_document:
+      toc: true
+---
+
+```{r setup, include=FALSE, linewidth=60}
+knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning=FALSE)
+```
+
+## Require Package
+```{r require package}
+library(dplyr)
+library(tidyverse)
+library(RSQLite)
+library(bigrquery)
+library(httr)
+library(jsonlite)
+```
+
+
+## Data cleaning
+### Building functions to reach statsAPI
+```{r reaching statsAPI}
+statsAPI <- function(x,...){
+#setting up base url for stats API
+base_url <-"https://statsapi.web.nhl.com/api/v1/teams"
+modifiers <- x
+
+#construct the full path
+full_url <- paste0(base_url, "/", modifiers)
+
+# retrieve information in raw form
+GET(full_url)
+
+#transfer into JSON text form
+text <- content(GET(full_url),"text")
+
+#convert it to a list
+mydata <- fromJSON(text, flatten = TRUE) 
+mydata<- as.data.frame(mydata)
+return(mydata)
+}
+statsAPI("?expand=person.names")
+```
+
+### Building functions to reach recordAPI
+```{r reaching recordAPI}
+recordAPI <- function(x,id=NULL,...){
+#setting up base url for stats API
+base_url <-"https://records.nhl.com/site/api"
+modifiers <- x
+if (is.null(id)){
+  full_url <- paste0(base_url, "/", modifiers)
+  }
+else {
+  full_url <- paste0(base_url, "/", modifiers,"?cayenneExp=franchiseId=", id)
+  } 
+
+
+# retrieve information in raw form
+GET(full_url)
+
+#transfer into JSON text form
+text <- content(GET(full_url),"text")
+
+#convert it to a list
+mydata <- fromJSON(text, flatten = TRUE) 
+mydata<- as.data.frame(mydata)
+return(mydata)
+}
+a<-recordAPI("franchise")
+b<-recordAPI("franchise-team-totals")
+c<-recordAPI("franchise-season-records",1)
+d<-recordAPI("franchise-goalie-records",1)
+e<-recordAPI("franchise-skater-records",1)
+```
+
+### accessory for API endpoints
+
