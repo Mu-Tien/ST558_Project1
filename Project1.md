@@ -1,19 +1,19 @@
----
-title: "ST558 Project 1"
-author: "Mu-Tien, Lee"
-date: "2020,09.04"
-output:
-  github_document:
-      toc: true
----
+ST558 Project 1
+================
+Mu-Tien, Lee
+2020,09.04
 
-```{r setup, include=FALSE, linewidth=60}
-knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning=FALSE)
+-   [Require Package](#require-package)
+-   [Data cleaning](#data-cleaning)
+    -   [Building functions to reach statsAPI](#building-functions-to-reach-statsapi)
+    -   [Building functions to reach recordAPI](#building-functions-to-reach-recordapi)
+    -   [accessory for API endpoints](#accessory-for-api-endpoints)
+-   [Data analysis](#data-analysis)
 
-```
+Require Package
+---------------
 
-## Require Package
-```{r require package}
+``` r
 library(rmarkdown)
 library(dplyr)
 library(tidyverse)
@@ -23,10 +23,12 @@ library(httr)
 library(jsonlite)
 ```
 
+Data cleaning
+-------------
 
-## Data cleaning
 ### Building functions to reach statsAPI
-```{r reaching statsAPI}
+
+``` r
 statsAPI <- function(x,...){
 #setting up base url for stats API
 base_url <-"https://statsapi.web.nhl.com/api/v1/teams"
@@ -54,11 +56,11 @@ q<- statsAPI("expand=team.stats")
 r<- statsAPI("expand=team.roster&season=20142015")
 s<- statsAPI("teamId=4,5,29")
 t<- statsAPI("stats=statsSingleSeasonPlayoffs")
-
 ```
 
 ### Building functions to reach recordAPI
-```{r reaching recordAPI}
+
+``` r
 recordAPI <- function(x,id=NULL,...){
 #setting up base url for stats API
 base_url <-"https://records.nhl.com/site/api"
@@ -90,12 +92,8 @@ e<-recordAPI("franchise-skater-records",1)
 ```
 
 ### accessory for API endpoints
+
 sapply()
 
-
-## Data analysis
-
-```{r}
-render(input="Project1.Rmd", output_format = "github_document", output_file = I(README.md))
-```
-
+Data analysis
+-------------
