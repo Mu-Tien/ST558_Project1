@@ -201,7 +201,7 @@ calculate <- function(x,...){
   data <- new %>% filter(data.gameTypeId == x)%>% select(winrate,winlossrate,overtimelossrate,goalpergame)
   if (x==2) type <- "regular season" else type <- "play off season"
   
-    kable(apply(data,2, summary), digit = 4,caption = paste0("Summary among all active teams during ", type))
+    kable(apply(data,2, summary),format = "html", digit = 4,caption = paste0("Summary among all active teams during ", type))
 }
 calculate(2)
 calculate(3)

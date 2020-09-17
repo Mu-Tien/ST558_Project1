@@ -309,33 +309,269 @@ calculate <- function(x,...){
   data <- new %>% filter(data.gameTypeId == x)%>% select(winrate,winlossrate,overtimelossrate,goalpergame)
   if (x==2) type <- "regular season" else type <- "play off season"
   
-    kable(apply(data,2, summary), digit = 4,caption = paste0("Summary among all active teams during ", type))
+    kable(apply(data,2, summary),format = "html", digit = 4,caption = paste0("Summary among all active teams during ", type))
 }
 calculate(2)
 ```
 
-|         |  winrate|  winlossrate|  overtimelossrate|  goalpergame|
-|:--------|--------:|------------:|-----------------:|------------:|
-| Min.    |   0.3958|       0.8051|            0.0546|       2.4833|
-| 1st Qu. |   0.4413|       1.0471|            0.0890|       2.8356|
-| Median  |   0.4605|       1.1643|            0.1252|       3.0541|
-| Mean    |   0.4639|       1.1710|            0.1508|       2.9862|
-| 3rd Qu. |   0.4837|       1.2694|            0.2157|       3.1771|
-| Max.    |   0.5660|       1.6625|            0.2750|       3.3322|
-
+<table>
+<caption>
+Summary among all active teams during regular season
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+winrate
+</th>
+<th style="text-align:right;">
+winlossrate
+</th>
+<th style="text-align:right;">
+overtimelossrate
+</th>
+<th style="text-align:right;">
+goalpergame
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Min.
+</td>
+<td style="text-align:right;">
+0.3958
+</td>
+<td style="text-align:right;">
+0.8051
+</td>
+<td style="text-align:right;">
+0.0546
+</td>
+<td style="text-align:right;">
+2.4833
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1st Qu.
+</td>
+<td style="text-align:right;">
+0.4413
+</td>
+<td style="text-align:right;">
+1.0471
+</td>
+<td style="text-align:right;">
+0.0890
+</td>
+<td style="text-align:right;">
+2.8356
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Median
+</td>
+<td style="text-align:right;">
+0.4605
+</td>
+<td style="text-align:right;">
+1.1643
+</td>
+<td style="text-align:right;">
+0.1252
+</td>
+<td style="text-align:right;">
+3.0541
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Mean
+</td>
+<td style="text-align:right;">
+0.4639
+</td>
+<td style="text-align:right;">
+1.1710
+</td>
+<td style="text-align:right;">
+0.1508
+</td>
+<td style="text-align:right;">
+2.9862
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3rd Qu.
+</td>
+<td style="text-align:right;">
+0.4837
+</td>
+<td style="text-align:right;">
+1.2694
+</td>
+<td style="text-align:right;">
+0.2157
+</td>
+<td style="text-align:right;">
+3.1771
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Max.
+</td>
+<td style="text-align:right;">
+0.5660
+</td>
+<td style="text-align:right;">
+1.6625
+</td>
+<td style="text-align:right;">
+0.2750
+</td>
+<td style="text-align:right;">
+3.3322
+</td>
+</tr>
+</tbody>
+</table>
 ``` r
 calculate(3)
 ```
 
-|         |  winrate|  winlossrate|  overtimelossrate|  goalpergame|
-|:--------|--------:|------------:|-----------------:|------------:|
-| Min.    |   0.3506|       0.5400|            0.0000|       2.2597|
-| 1st Qu. |   0.4536|       0.8321|            0.0000|       2.5917|
-| Median  |   0.4891|       0.9745|            0.0000|       2.7400|
-| Mean    |   0.4906|       0.9962|            0.0007|       2.7762|
-| 3rd Qu. |   0.5354|       1.1523|            0.0000|       2.9395|
-| Max.    |   0.5970|       1.4815|            0.0111|       3.6791|
-
+<table>
+<caption>
+Summary among all active teams during play off season
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+winrate
+</th>
+<th style="text-align:right;">
+winlossrate
+</th>
+<th style="text-align:right;">
+overtimelossrate
+</th>
+<th style="text-align:right;">
+goalpergame
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Min.
+</td>
+<td style="text-align:right;">
+0.3506
+</td>
+<td style="text-align:right;">
+0.5400
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+2.2597
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1st Qu.
+</td>
+<td style="text-align:right;">
+0.4536
+</td>
+<td style="text-align:right;">
+0.8321
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+2.5917
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Median
+</td>
+<td style="text-align:right;">
+0.4891
+</td>
+<td style="text-align:right;">
+0.9745
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+2.7400
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Mean
+</td>
+<td style="text-align:right;">
+0.4906
+</td>
+<td style="text-align:right;">
+0.9962
+</td>
+<td style="text-align:right;">
+0.0007
+</td>
+<td style="text-align:right;">
+2.7762
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3rd Qu.
+</td>
+<td style="text-align:right;">
+0.5354
+</td>
+<td style="text-align:right;">
+1.1523
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+2.9395
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Max.
+</td>
+<td style="text-align:right;">
+0.5970
+</td>
+<td style="text-align:right;">
+1.4815
+</td>
+<td style="text-align:right;">
+0.0111
+</td>
+<td style="text-align:right;">
+3.6791
+</td>
+</tr>
+</tbody>
+</table>
 Plots
 -----
 
