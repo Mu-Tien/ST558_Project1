@@ -12,12 +12,13 @@ knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning=FALSE)
 
 ```
 
-## Require Package
+# Require Package
 ```{r require package}
 #install.packages("qwraps2")
 library(rmarkdown)
 library(dplyr)
 library(tidyverse)
+library(knitr)
 library(RSQLite)
 library(bigrquery)
 library(httr)
@@ -27,21 +28,40 @@ library(qwraps2)
 ```
 
 
-## Data cleaning
-### Building functions to reach statsAPI
+# Data cleaning
+## Building functions to reach statsAPI
 ```{r reaching statsAPI}
-statsAPI <- function(x,teamid=NULL,year=NULL, ...){
+statsAPI <- function(x,teamID=NULL,season=NULL, ...){
 #setting up base url for stats API
 base_url <-"https://statsapi.web.nhl.com/api/v1/teams"
 modifiers <- x
 
 #construct the full path
-if (is.null(teamid)){
-full_url <- paste0(base_url, "?", modifiers)
+if (x %in% c("expand=team.roster","expand=person.names","expand=team.schedule.next","expand=team.schedule.previous","expand=team.stats","stats=statsSingleSeasonPlayoffs")){
+  
+  if (is.null(teamID)){
+    full_url <- paste0(base_url, "?", modifiers)}
+  
+  else if(length(teamID)>1){
+    stop("sorry, we can only show one team each time")}
+
+  else {
+    full_url <- paste0(base_url, "/", teamID, "?", modifiers)}
+}  
+  
+else if (x %in% "expand=team.roster&season" ){
+  if (is.null(season)){
+    stop("seaon is missing")}
+  
+  else if(length(teamID)>1){
+    stop("sorry, we can only show one team each time")}
+  
+  else if(is.null(teamID)){
+    full_url <- paste0(base_url,"?", modifiers,"=", 20142015)}
+
+  else {
+    full_url <- paste0(base_url, "/", teamID, "?", modifiers,"=", season)}
 }
-else {
-  full_url <- paste0(base_url, "/", teamid, "?", modifiers)
-  } 
 
 # retrieve information in raw form
 GET(full_url)
@@ -53,32 +73,32 @@ mydata<- as.data.frame(mydata)
 return(mydata)
 }
 
-m<- statsAPI("expand=team.roster")
-n<- statsAPI("expand=person.names")
-o<- statsAPI("expand=team.schedule.next")
-p<- statsAPI("expand=team.schedule.previous")
-q<- statsAPI("expand=team.stats")
-r<- statsAPI("expand=team.roster&season=20142015")
-s<- statsAPI("teamId=4,5,29")
-t<- statsAPI("stats=statsSingleSeasonPlayoffs")
+#m<- statsAPI("expand=team.roster")
+#n<- statsAPI("expand=person.names")
+#o<- statsAPI("expand=team.schedule.next")
+#p<- statsAPI("expand=team.schedule.previous")
+#q<- statsAPI("expand=team.stats",12)
+r<- statsAPI("expand=team.roster&season",teamid=54, season = 19971998)
+#s<- statsAPI("teamId=4,5,29",12)
+#t<- statsAPI("stats=statsSingleSeasonPlayoffs")
 
 ```
 
-### Building functions to reach recordAPI
+## Building functions to reach recordAPI
 ```{r reaching recordAPI}
-recordAPI <- function(x,teamid=NULL,...){
+recordAPI <- function(x,franchiseID=NULL,...){
 #setting up base url for stats API
 base_url <-"https://records.nhl.com/site/api"
 modifiers <- x
 
-if (is.null(teamid)){
+if (is.null(franchiseID)){
     full_url <- paste0(base_url, "/", modifiers)
   }
 else if (x %in% c("franchise","franchise-team-totals")) {
     stop("Sorry,table franchise and franchise-team-totals cannot indicate team")
   }
 else {
-  full_url <- paste0(base_url, "/", modifiers,"?cayenneExp=franchiseId=", teamid)
+  full_url <- paste0(base_url, "/", modifiers,"?cayenneExp=franchiseId=", franchiseID)
   } 
 
 # retrieve information in raw form
@@ -93,60 +113,55 @@ return(mydata)
 
 a<-recordAPI("franchise")
 b<-recordAPI("franchise-team-totals")
-c<-recordAPI("franchise-season-records",1)
+c<-recordAPI("franchise-season-records",11)
 d<-recordAPI("franchise-goalie-records",1)
 e<-recordAPI("franchise-skater-records",1)
 ```
 
-### accessory for API endpoints
+Below is a function that can help you read whatever the endpoint you would like to get, please key in the following option in the function.
+```{r}
+endpoints <- c("franchise","franchise-team-totals","franchise-season-records","franchise-goalie-records","franchise-skater-records","expand=team.roster","expand=person.names","expand=team.schedule.next","expand=team.schedule.previous","expand=team.stats","expand=team.roster&season","teamId","stats=statsSingleSeasonPlayoffs")
+idOption <- c(rep("None",2),rep("franchiseID",3),rep("teamID",8))
+seasonOption <- c(rep("No",10),"Yes", "No","No")
+kable(cbind(endpoints,idOption,seasonOption))
+
+IDtable <- recordAPI("franchise-team-totals") %>%filter(data.gameTypeId==2) %>% select(data.teamName, data.franchiseId, data.teamId)
+kable(IDtable,caption = "Id table for teams")
+```
+
+
+## accessory for API endpoints
 ```{r accessory for endpoints}
-endpoints <- function(x, teamid=NULL, year=NULL, ...){
+endpoints <- function(x,...){
   record <- c("franchise","franchise-team-totals","franchise-season-records", "franchise-goalie-records", "franchise-skater-records")
-  stats <- c()
-  if (x %in% record) recordAPI(x,teamid,...)
-  else if (x %in% stats) statsAPI(x, teamid)
+  
+  stats <- c("expand=team.roster","expand=person.names ","expand=team.schedule.next","expand=team.schedule.previous","expand=team.stats","expand=team.roster&season","teamId","stats=statsSingleSeasonPlayoffs")
+  
+  if (x %in% record) recordAPI(x,...)
+  else if (x %in% stats) statsAPI(x,...)
   else stop("Please enter the correct name of your enpoints")
 }
-try<-endpoints("franchise-season-records",1)
+try<-endpoints("franchise-season-records")
 ```
 
-## Data analysis
+# Data analysis
 
-```{r}
-montreal <-recordAPI("franchise-season-records",8)
-tornonto <-recordAPI("franchise-season-records",10)
-detroit <-recordAPI("franchise-season-records",17)
-carolinas <-recordAPI("franchise-season-records",12)
-seasonrecord <- rbind.data.frame(Motreal_Canadiens=montreal, Tornonto_MapleLeafs=tornonto, Detroit_RedWings=detroit, Carolinas_Hurricanes=carolinas)
-seasonrecord
-
-montreal <-recordAPI("franchise-goalie-records",8)
-tornonto <-recordAPI("franchise-goalie-records",10)
-detroit <-recordAPI("franchise-goalie-records",17)
-carolinas <-recordAPI("franchise-goalie-records",12)
-goalierecord <- rbind.data.frame(Motreal_Canadiens=montreal, Tornonto_MapleLeafs=tornonto, Detroit_RedWings=detroit, Carolinas_Hurricanes=carolinas)
-
-montreal <-recordAPI("franchise-skater-records",8)
-tornonto <-recordAPI("franchise-skater-records",10)
-detroit <-recordAPI("franchise-skater-records",17)
-carolinas <-recordAPI("franchise-skater-records",12)
-skaterrecord <- rbind.data.frame(Motreal_Canadiens=montreal, Tornonto_MapleLeafs=tornonto, Detroit_RedWings=detroit, Carolinas_Hurricanes=carolinas)
-
-mydata <- statsAPI("teamId=8,10,17,12")
-
-
-
-bar1 <- ggplot(data=new,aes(x=data.gamesPlayed))
-bar1+geom_histogram(aes(fill=teams.division.name),binwidth = 500, position= "dodge")
-
-```
-
+## building data for later use
 ```{r build my data}
-teamtotal<-recordAPI("franchise-team-totals")%>% filter(is.na(data.lastSeasonId))
-division <- statsAPI("expand=team.roster")%>% select(teams.id, teams.division.name, teams.division.nameShort, teams.conference.name) %>%rename(data.teamId=teams.id)
+#get some wins/losses data for active teams
+teamtotal<-endpoints("franchise-team-totals")%>% filter(is.na(data.lastSeasonId))
 
-new <- left_join(teamtotal,division, by="data.teamId") %>% mutate(winrate=data.wins/data.gamesPlayed, winlossrate=data.wins/data.losses, overtimelossrate= data.overtimeLosses/data.losses, goalpergame=data.goalsFor/data.gamesPlayed)
+#get teams' division and conference from another table
+division <- endpoints("expand=team.roster")%>% select(teams.id, teams.division.name, teams.division.nameShort, teams.conference.name) %>%rename(data.teamId=teams.id)
 
+#combine them as new dataset
+new <- left_join(teamtotal,division, by="data.teamId") 
+
+#creat new variables
+#calculating some rate
+new <- new %>% mutate(winrate=data.wins/data.gamesPlayed, winlossrate=data.wins/data.losses, overtimelossrate= data.overtimeLosses/data.losses, goalpergame=data.goalsFor/data.gamesPlayed, averagePenaltytime= data.penaltyMinutes/data.gamesPlayed)
+
+#put the level on the age of te team
 for (i in 1: nrow(new)){
   
   if (new$data.firstSeasonId[i]/10000<1943){
@@ -165,35 +180,104 @@ for (i in 1: nrow(new)){
 
 ```
 
+## Numeric summarize
+### A contingency table (Division*Fist year of play)
 ```{r contingency table}
+#level the age
 new$age <- as.factor(new$age)
 levels(new$age)<-list("1917-1942"="Freshman","1942-1967"="Sophomore","1967-1992"="Junior","1992-2017"="Senior")
-table1 <- table(new$teams.division.name,new$age) 
-kable(table1) 
+#show the table
+datafortable <- new %>% filter(data.gameTypeId==2)
+table1 <- table(datafortable$age, datafortable$teams.division.name) 
+kable(table1,caption = " Division and Team established year information") 
 
 ```
+In this table, we can notice that Atlantic has younger team distribution when Centrl and Pacific have more older team
 
-```{r histogram}
-type2 <- new %>% filter(data.gameTypeId==2)
-type3 <- new %>% filter(data.gameTypeId==3)
-histo1 <- ggplot(data=type2,aes(x=data.penaltyMinutes))
-histo1+geom_histogram(binwidth = 10000)
-
-histo2 <- ggplot(data=type3,aes(x=data.penaltyMinutes))
-histo2+geom_histogram(binwidth = 800)
-```
-
+###Numeric summary table
 ```{r summary}
 
 calculate <- function(x,...){
   data <- new %>% filter(data.gameTypeId == x)%>% select(winrate,winlossrate,overtimelossrate,goalpergame)
-    kable(apply(data,2, summary), digit = 4,caption = paste0("Summary of gametpye", x))
+  if (x==2) type <- "regular season" else type <- "play off season"
+  
+    kable(apply(data,2, summary), digit = 4,caption = paste0("Summary among all active teams during ", type))
 }
 calculate(2)
 calculate(3)
- #if(x==2) caption="summary of regular season" else caption="summary of playoff season"
-#caption = paste0("Summary of gametpyre", x)
 
+```
+
+##Plots
+### a bar plot tells conference and division
+```{r bar plot}
+type2 <- new %>% filter(data.gameTypeId==2)
+bar1 <- ggplot(data=type2,aes(x=teams.conference.name))
+bar1+ geom_bar(aes(fill=teams.division.name), position = "dodge")+labs(title = "Barplot for teams' conference and division")+xlab("conference")
+```
+
+
+### a histogram of penalty times
+```{r histogram}
+type3 <- new %>% filter(data.gameTypeId==3)
+histo1 <- ggplot(data=type2,aes(x=averagePenaltytime))
+histo1+geom_histogram(binwidth = 1, aes(fill=teams.division.name))+labs(title = "Histogram for penalty time during relugar season")+xlab("penalty time in minutes")
+
+histo2 <- ggplot(data=type3,aes(x=averagePenaltytime))
+histo2+geom_histogram(binwidth = 1, aes(fill=age))+labs(title = "Histogram for penalty time during play off season")+xlab("penalty time in minutes")
+```
+
+# data analysis between 4 selected team
+I choose NY islanders, Tampa Bay lightening, Vegas Golden Knights, Dallas stars, which are in the Conference Finals in 2019-20 NHL season
+
+```{r}
+fourteams <- filter(new, data.teamId %in% c(2, 14, 25, 54)) 
+
+NY <-endpoints("franchise-season-records",22)
+Tampa_bay <-endpoints("franchise-season-records",31)
+Vegas <-endpoints("franchise-season-records",38)
+Dallas <-endpoints("franchise-season-records",15)
+seasonrecord <- rbind.data.frame(NY, Tampa_bay, Vegas, Dallas)
+
+NY <-endpoints("franchise-goalie-records",22)
+Tampa_bay <-endpoints("franchise-goalie-records",31)
+Vegas <-endpoints("franchise-goalie-records",38)
+Dallas <-endpoints("franchise-goalie-records",15)
+goalierecord <- rbind.data.frame(NY, Tampa_bay, Vegas, Dallas)
+
+NY <-endpoints("franchise-skater-records",22)
+Tampa_bay <-endpoints("franchise-skater-records",31)
+Vegas <-endpoints("franchise-skater-records",38)
+Dallas <-endpoints("franchise-skater-records",15)
+skaterrecord <- rbind.data.frame(NY, Tampa_bay, Vegas, Dallas)
+
+names(goalierecord)
+
+goalierecord <- goalierecord %>% mutate(winRate=data.wins/data.gamesPlayed)
+
+
+```
+##Numerical summary
+```{r}
+#datafortable2 <- skaterrecord %>% filter(data.gameTypeId==2)
+table2 <- table(skaterrecord$data.positionCode, skaterrecord$data.franchiseName, skaterrecord$data.activePlayer) 
+kable(table2[ , ,1],caption = " teams and skatter position for non-active player")
+kable(table2[ , ,2],caption = " teams and skatter position for active player")
+```
+
+##Plots
+### scatter and boxplot 
+```{r boxplot for activeskater}
+actskaterrecord <- skaterrecord %>%  filter(data.gamesPlayed > 15)
+boxplot1 <- ggplot(data=actskaterrecord,aes(x=data.franchiseName, y=data.mostPointsOneSeason))
+boxplot1+geom_boxplot()+labs(title="Boxplot of most point in one season for skater who palyed more than 15 games")
+
+#+geom_jitter(aes(color=data.franchiseName))
+```
+
+```{r boxplot for all goalier}
+boxplot2 <- ggplot(data=goalierecord,aes(x=data.franchiseName, y=winRate))
+boxplot2+geom_boxplot()+geom_jitter(aes(color=data.franchiseName))+labs(title="Boxplot of win rate for goalier")
 ```
 
 #render("Project1.Rmd", output_format ="github_document", output_file=I("README.md"))
