@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="data:text/css;charset=utf-8,%0A%40font%2Dface%20%7B%0Afont%2Dfamily%3A%20octicons%2Dlink%3B%0Asrc%3A%20url%28data%3Afont%2Fwoff%3Bcharset%3Dutf%2D8%3Bbase64%2Cd09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM%2B8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB%2FaFGpk3jaTY6xa8JAGMW%2FO62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v%2Bk%2F0an2i%2BitHDw3v2%2B9%2BDBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3%2FI7AtxEJLtzzuZfI%2BVVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy%2FLt7Kc%2B0vWY%2FgAgIIEqAN9we0pwKXreiMasxvabDQMM4riO%2BqxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw%2Bymhce7vwM9jSqO8JyVd5RH9gyTt2%2BJ%2FyUmYlIR0s04n6%2B7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv%2FocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi%2BW2%2BMjCzMIDApSwvXzC97Z4Ig8N%2FBxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh%2F8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT%2BAEjAwuDFpBmA9KMDEwMCh9i%2Fv8H8sH0%2F4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9%2FlqYwOGZxeUelN2U2R6%2BcArgtCJpauW7UQBqnFkUsjAY%2FkOU1cP%2BDAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl%2BvvmM%2FbyA48e6tWrKArm4ZJlCbdsrxksL1AwWn%2FyBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO%2F%2FsdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd%2F89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF%2B9JOS0nbaaYDCQfwCJ7Au3AHj%2BLO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm%2BEBXuAbHmIMSRMs%2B4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL%2BhD7C1xoaHeLJSEao0FEW14ckxC%2BTU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13%2F%2Blm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl%2B9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O%2FAdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB%2F%2F%2FAA8AAQAAAAAAAAAAAAAAAAABAAAAAA%3D%3D%29%20format%28%27woff%27%29%3B%0A%7D%0Abody%20%7B%0A%2Dwebkit%2Dtext%2Dsize%2Dadjust%3A%20100%25%3B%0Atext%2Dsize%2Dadjust%3A%20100%25%3B%0Acolor%3A%20%23333%3B%0Afont%2Dfamily%3A%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20%22Segoe%20UI%22%2C%20Arial%2C%20freesans%2C%20sans%2Dserif%2C%20%22Apple%20Color%20Emoji%22%2C%20%22Segoe%20UI%20Emoji%22%2C%20%22Segoe%20UI%20Symbol%22%3B%0Afont%2Dsize%3A%2016px%3B%0Aline%2Dheight%3A%201%2E6%3B%0Aword%2Dwrap%3A%20break%2Dword%3B%0A%7D%0Aa%20%7B%0Abackground%2Dcolor%3A%20transparent%3B%0A%7D%0Aa%3Aactive%2C%0Aa%3Ahover%20%7B%0Aoutline%3A%200%3B%0A%7D%0Astrong%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Ah1%20%7B%0Afont%2Dsize%3A%202em%3B%0Amargin%3A%200%2E67em%200%3B%0A%7D%0Aimg%20%7B%0Aborder%3A%200%3B%0A%7D%0Ahr%20%7B%0Abox%2Dsizing%3A%20content%2Dbox%3B%0Aheight%3A%200%3B%0A%7D%0Apre%20%7B%0Aoverflow%3A%20auto%3B%0A%7D%0Acode%2C%0Akbd%2C%0Apre%20%7B%0Afont%2Dfamily%3A%20monospace%2C%20monospace%3B%0Afont%2Dsize%3A%201em%3B%0A%7D%0Ainput%20%7B%0Acolor%3A%20inherit%3B%0Afont%3A%20inherit%3B%0Amargin%3A%200%3B%0A%7D%0Ahtml%20input%5Bdisabled%5D%20%7B%0Acursor%3A%20default%3B%0A%7D%0Ainput%20%7B%0Aline%2Dheight%3A%20normal%3B%0A%7D%0Ainput%5Btype%3D%22checkbox%22%5D%20%7B%0Abox%2Dsizing%3A%20border%2Dbox%3B%0Apadding%3A%200%3B%0A%7D%0Atable%20%7B%0Aborder%2Dcollapse%3A%20collapse%3B%0Aborder%2Dspacing%3A%200%3B%0A%7D%0Atd%2C%0Ath%20%7B%0Apadding%3A%200%3B%0A%7D%0A%2A%20%7B%0Abox%2Dsizing%3A%20border%2Dbox%3B%0A%7D%0Ainput%20%7B%0Afont%3A%2013px%20%2F%201%2E4%20Helvetica%2C%20arial%2C%20nimbussansl%2C%20liberationsans%2C%20freesans%2C%20clean%2C%20sans%2Dserif%2C%20%22Apple%20Color%20Emoji%22%2C%20%22Segoe%20UI%20Emoji%22%2C%20%22Segoe%20UI%20Symbol%22%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%234078c0%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%2C%0Aa%3Aactive%20%7B%0Atext%2Ddecoration%3A%20underline%3B%0A%7D%0Ahr%20%7B%0Aheight%3A%200%3B%0Amargin%3A%2015px%200%3B%0Aoverflow%3A%20hidden%3B%0Abackground%3A%20transparent%3B%0Aborder%3A%200%3B%0Aborder%2Dbottom%3A%201px%20solid%20%23ddd%3B%0A%7D%0Ahr%3Abefore%20%7B%0Adisplay%3A%20table%3B%0Acontent%3A%20%22%22%3B%0A%7D%0Ahr%3Aafter%20%7B%0Adisplay%3A%20table%3B%0Aclear%3A%20both%3B%0Acontent%3A%20%22%22%3B%0A%7D%0Ah1%2C%0Ah2%2C%0Ah3%2C%0Ah4%2C%0Ah5%2C%0Ah6%20%7B%0Amargin%2Dtop%3A%2015px%3B%0Amargin%2Dbottom%3A%2015px%3B%0Aline%2Dheight%3A%201%2E1%3B%0A%7D%0Ah1%20%7B%0Afont%2Dsize%3A%2030px%3B%0A%7D%0Ah2%20%7B%0Afont%2Dsize%3A%2021px%3B%0A%7D%0Ah3%20%7B%0Afont%2Dsize%3A%2016px%3B%0A%7D%0Ah4%20%7B%0Afont%2Dsize%3A%2014px%3B%0A%7D%0Ah5%20%7B%0Afont%2Dsize%3A%2012px%3B%0A%7D%0Ah6%20%7B%0Afont%2Dsize%3A%2011px%3B%0A%7D%0Ablockquote%20%7B%0Amargin%3A%200%3B%0A%7D%0Aul%2C%0Aol%20%7B%0Apadding%3A%200%3B%0Amargin%2Dtop%3A%200%3B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Aol%20ol%2C%0Aul%20ol%20%7B%0Alist%2Dstyle%2Dtype%3A%20lower%2Droman%3B%0A%7D%0Aul%20ul%20ol%2C%0Aul%20ol%20ol%2C%0Aol%20ul%20ol%2C%0Aol%20ol%20ol%20%7B%0Alist%2Dstyle%2Dtype%3A%20lower%2Dalpha%3B%0A%7D%0Add%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20%22Liberation%20Mono%22%2C%20Menlo%2C%20Courier%2C%20monospace%3B%0Afont%2Dsize%3A%2012px%3B%0A%7D%0Apre%20%7B%0Amargin%2Dtop%3A%200%3B%0Amargin%2Dbottom%3A%200%3B%0Afont%3A%2012px%20Consolas%2C%20%22Liberation%20Mono%22%2C%20Menlo%2C%20Courier%2C%20monospace%3B%0A%7D%0A%2Eselect%3A%3A%2Dms%2Dexpand%20%7B%0Aopacity%3A%200%3B%0A%7D%0A%2Eocticon%20%7B%0Afont%3A%20normal%20normal%20normal%2016px%2F1%20octicons%2Dlink%3B%0Adisplay%3A%20inline%2Dblock%3B%0Atext%2Ddecoration%3A%20none%3B%0Atext%2Drendering%3A%20auto%3B%0A%2Dwebkit%2Dfont%2Dsmoothing%3A%20antialiased%3B%0A%2Dmoz%2Dosx%2Dfont%2Dsmoothing%3A%20grayscale%3B%0A%2Dwebkit%2Duser%2Dselect%3A%20none%3B%0A%2Dmoz%2Duser%2Dselect%3A%20none%3B%0A%2Dms%2Duser%2Dselect%3A%20none%3B%0Auser%2Dselect%3A%20none%3B%0A%7D%0A%2Eocticon%2Dlink%3Abefore%20%7B%0Acontent%3A%20%27%5Cf05c%27%3B%0A%7D%0A%2Emarkdown%2Dbody%3Abefore%20%7B%0Adisplay%3A%20table%3B%0Acontent%3A%20%22%22%3B%0A%7D%0A%2Emarkdown%2Dbody%3Aafter%20%7B%0Adisplay%3A%20table%3B%0Aclear%3A%20both%3B%0Acontent%3A%20%22%22%3B%0A%7D%0A%2Emarkdown%2Dbody%3E%2A%3Afirst%2Dchild%20%7B%0Amargin%2Dtop%3A%200%20%21important%3B%0A%7D%0A%2Emarkdown%2Dbody%3E%2A%3Alast%2Dchild%20%7B%0Amargin%2Dbottom%3A%200%20%21important%3B%0A%7D%0Aa%3Anot%28%5Bhref%5D%29%20%7B%0Acolor%3A%20inherit%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0A%2Eanchor%20%7B%0Adisplay%3A%20inline%2Dblock%3B%0Apadding%2Dright%3A%202px%3B%0Amargin%2Dleft%3A%20%2D18px%3B%0A%7D%0A%2Eanchor%3Afocus%20%7B%0Aoutline%3A%20none%3B%0A%7D%0Ah1%2C%0Ah2%2C%0Ah3%2C%0Ah4%2C%0Ah5%2C%0Ah6%20%7B%0Amargin%2Dtop%3A%201em%3B%0Amargin%2Dbottom%3A%2016px%3B%0Afont%2Dweight%3A%20bold%3B%0Aline%2Dheight%3A%201%2E4%3B%0A%7D%0Ah1%20%2Eocticon%2Dlink%2C%0Ah2%20%2Eocticon%2Dlink%2C%0Ah3%20%2Eocticon%2Dlink%2C%0Ah4%20%2Eocticon%2Dlink%2C%0Ah5%20%2Eocticon%2Dlink%2C%0Ah6%20%2Eocticon%2Dlink%20%7B%0Acolor%3A%20%23000%3B%0Avertical%2Dalign%3A%20middle%3B%0Avisibility%3A%20hidden%3B%0A%7D%0Ah1%3Ahover%20%2Eanchor%2C%0Ah2%3Ahover%20%2Eanchor%2C%0Ah3%3Ahover%20%2Eanchor%2C%0Ah4%3Ahover%20%2Eanchor%2C%0Ah5%3Ahover%20%2Eanchor%2C%0Ah6%3Ahover%20%2Eanchor%20%7B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Ah1%3Ahover%20%2Eanchor%20%2Eocticon%2Dlink%2C%0Ah2%3Ahover%20%2Eanchor%20%2Eocticon%2Dlink%2C%0Ah3%3Ahover%20%2Eanchor%20%2Eocticon%2Dlink%2C%0Ah4%3Ahover%20%2Eanchor%20%2Eocticon%2Dlink%2C%0Ah5%3Ahover%20%2Eanchor%20%2Eocticon%2Dlink%2C%0Ah6%3Ahover%20%2Eanchor%20%2Eocticon%2Dlink%20%7B%0Avisibility%3A%20visible%3B%0A%7D%0Ah1%20%7B%0Apadding%2Dbottom%3A%200%2E3em%3B%0Afont%2Dsize%3A%202%2E25em%3B%0Aline%2Dheight%3A%201%2E2%3B%0Aborder%2Dbottom%3A%201px%20solid%20%23eee%3B%0A%7D%0Ah1%20%2Eanchor%20%7B%0Aline%2Dheight%3A%201%3B%0A%7D%0Ah2%20%7B%0Apadding%2Dbottom%3A%200%2E3em%3B%0Afont%2Dsize%3A%201%2E75em%3B%0Aline%2Dheight%3A%201%2E225%3B%0Aborder%2Dbottom%3A%201px%20solid%20%23eee%3B%0A%7D%0Ah2%20%2Eanchor%20%7B%0Aline%2Dheight%3A%201%3B%0A%7D%0Ah3%20%7B%0Afont%2Dsize%3A%201%2E5em%3B%0Aline%2Dheight%3A%201%2E43%3B%0A%7D%0Ah3%20%2Eanchor%20%7B%0Aline%2Dheight%3A%201%2E2%3B%0A%7D%0Ah4%20%7B%0Afont%2Dsize%3A%201%2E25em%3B%0A%7D%0Ah4%20%2Eanchor%20%7B%0Aline%2Dheight%3A%201%2E2%3B%0A%7D%0Ah5%20%7B%0Afont%2Dsize%3A%201em%3B%0A%7D%0Ah5%20%2Eanchor%20%7B%0Aline%2Dheight%3A%201%2E1%3B%0A%7D%0Ah6%20%7B%0Afont%2Dsize%3A%201em%3B%0Acolor%3A%20%23777%3B%0A%7D%0Ah6%20%2Eanchor%20%7B%0Aline%2Dheight%3A%201%2E1%3B%0A%7D%0Ap%2C%0Ablockquote%2C%0Aul%2C%0Aol%2C%0Adl%2C%0Atable%2C%0Apre%20%7B%0Amargin%2Dtop%3A%200%3B%0Amargin%2Dbottom%3A%2016px%3B%0A%7D%0Ahr%20%7B%0Aheight%3A%204px%3B%0Apadding%3A%200%3B%0Amargin%3A%2016px%200%3B%0Abackground%2Dcolor%3A%20%23e7e7e7%3B%0Aborder%3A%200%20none%3B%0A%7D%0Aul%2C%0Aol%20%7B%0Apadding%2Dleft%3A%202em%3B%0A%7D%0Aul%20ul%2C%0Aul%20ol%2C%0Aol%20ol%2C%0Aol%20ul%20%7B%0Amargin%2Dtop%3A%200%3B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Ali%3Ep%20%7B%0Amargin%2Dtop%3A%2016px%3B%0A%7D%0Adl%20%7B%0Apadding%3A%200%3B%0A%7D%0Adl%20dt%20%7B%0Apadding%3A%200%3B%0Amargin%2Dtop%3A%2016px%3B%0Afont%2Dsize%3A%201em%3B%0Afont%2Dstyle%3A%20italic%3B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Adl%20dd%20%7B%0Apadding%3A%200%2016px%3B%0Amargin%2Dbottom%3A%2016px%3B%0A%7D%0Ablockquote%20%7B%0Apadding%3A%200%2015px%3B%0Acolor%3A%20%23777%3B%0Aborder%2Dleft%3A%204px%20solid%20%23ddd%3B%0A%7D%0Ablockquote%3E%3Afirst%2Dchild%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Ablockquote%3E%3Alast%2Dchild%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Atable%20%7B%0Adisplay%3A%20block%3B%0Awidth%3A%20100%25%3B%0Aoverflow%3A%20auto%3B%0Aword%2Dbreak%3A%20normal%3B%0Aword%2Dbreak%3A%20keep%2Dall%3B%0A%7D%0Atable%20th%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Atable%20th%2C%0Atable%20td%20%7B%0Apadding%3A%206px%2013px%3B%0Aborder%3A%201px%20solid%20%23ddd%3B%0A%7D%0Atable%20tr%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Aborder%2Dtop%3A%201px%20solid%20%23ccc%3B%0A%7D%0Atable%20tr%3Anth%2Dchild%282n%29%20%7B%0Abackground%2Dcolor%3A%20%23f8f8f8%3B%0A%7D%0Aimg%20%7B%0Amax%2Dwidth%3A%20100%25%3B%0Abox%2Dsizing%3A%20content%2Dbox%3B%0Abackground%2Dcolor%3A%20%23fff%3B%0A%7D%0Acode%20%7B%0Apadding%3A%200%3B%0Apadding%2Dtop%3A%200%2E2em%3B%0Apadding%2Dbottom%3A%200%2E2em%3B%0Amargin%3A%200%3B%0Afont%2Dsize%3A%2085%25%3B%0Abackground%2Dcolor%3A%20rgba%280%2C0%2C0%2C0%2E04%29%3B%0Aborder%2Dradius%3A%203px%3B%0A%7D%0Acode%3Abefore%2C%0Acode%3Aafter%20%7B%0Aletter%2Dspacing%3A%20%2D0%2E2em%3B%0Acontent%3A%20%22%5C00a0%22%3B%0A%7D%0Apre%3Ecode%20%7B%0Apadding%3A%200%3B%0Amargin%3A%200%3B%0Afont%2Dsize%3A%20100%25%3B%0Aword%2Dbreak%3A%20normal%3B%0Awhite%2Dspace%3A%20pre%3B%0Abackground%3A%20transparent%3B%0Aborder%3A%200%3B%0A%7D%0A%2Ehighlight%20%7B%0Amargin%2Dbottom%3A%2016px%3B%0A%7D%0A%2Ehighlight%20pre%2C%0Apre%20%7B%0Apadding%3A%2016px%3B%0Aoverflow%3A%20auto%3B%0Afont%2Dsize%3A%2085%25%3B%0Aline%2Dheight%3A%201%2E45%3B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0A%7D%0A%2Ehighlight%20pre%20%7B%0Amargin%2Dbottom%3A%200%3B%0Aword%2Dbreak%3A%20normal%3B%0A%7D%0Apre%20%7B%0Aword%2Dwrap%3A%20normal%3B%0A%7D%0Apre%20code%20%7B%0Adisplay%3A%20inline%3B%0Amax%2Dwidth%3A%20initial%3B%0Apadding%3A%200%3B%0Amargin%3A%200%3B%0Aoverflow%3A%20initial%3B%0Aline%2Dheight%3A%20inherit%3B%0Aword%2Dwrap%3A%20normal%3B%0Abackground%2Dcolor%3A%20transparent%3B%0Aborder%3A%200%3B%0A%7D%0Apre%20code%3Abefore%2C%0Apre%20code%3Aafter%20%7B%0Acontent%3A%20normal%3B%0A%7D%0Akbd%20%7B%0Adisplay%3A%20inline%2Dblock%3B%0Apadding%3A%203px%205px%3B%0Afont%2Dsize%3A%2011px%3B%0Aline%2Dheight%3A%2010px%3B%0Acolor%3A%20%23555%3B%0Avertical%2Dalign%3A%20middle%3B%0Abackground%2Dcolor%3A%20%23fcfcfc%3B%0Aborder%3A%20solid%201px%20%23ccc%3B%0Aborder%2Dbottom%2Dcolor%3A%20%23bbb%3B%0Aborder%2Dradius%3A%203px%3B%0Abox%2Dshadow%3A%20inset%200%20%2D1px%200%20%23bbb%3B%0A%7D%0A%2Epl%2Dc%20%7B%0Acolor%3A%20%23969896%3B%0A%7D%0A%2Epl%2Dc1%2C%0A%2Epl%2Ds%20%2Epl%2Dv%20%7B%0Acolor%3A%20%230086b3%3B%0A%7D%0A%2Epl%2De%2C%0A%2Epl%2Den%20%7B%0Acolor%3A%20%23795da3%3B%0A%7D%0A%2Epl%2Ds%20%2Epl%2Ds1%2C%0A%2Epl%2Dsmi%20%7B%0Acolor%3A%20%23333%3B%0A%7D%0A%2Epl%2Dent%20%7B%0Acolor%3A%20%2363a35c%3B%0A%7D%0A%2Epl%2Dk%20%7B%0Acolor%3A%20%23a71d5d%3B%0A%7D%0A%2Epl%2Dpds%2C%0A%2Epl%2Ds%2C%0A%2Epl%2Ds%20%2Epl%2Dpse%20%2Epl%2Ds1%2C%0A%2Epl%2Dsr%2C%0A%2Epl%2Dsr%20%2Epl%2Dcce%2C%0A%2Epl%2Dsr%20%2Epl%2Dsra%2C%0A%2Epl%2Dsr%20%2Epl%2Dsre%20%7B%0Acolor%3A%20%23183691%3B%0A%7D%0A%2Epl%2Dv%20%7B%0Acolor%3A%20%23ed6a43%3B%0A%7D%0A%2Epl%2Did%20%7B%0Acolor%3A%20%23b52a1d%3B%0A%7D%0A%2Epl%2Dii%20%7B%0Abackground%2Dcolor%3A%20%23b52a1d%3B%0Acolor%3A%20%23f8f8f8%3B%0A%7D%0A%2Epl%2Dsr%20%2Epl%2Dcce%20%7B%0Acolor%3A%20%2363a35c%3B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0A%2Epl%2Dml%20%7B%0Acolor%3A%20%23693a17%3B%0A%7D%0A%2Epl%2Dmh%2C%0A%2Epl%2Dmh%20%2Epl%2Den%2C%0A%2Epl%2Dms%20%7B%0Acolor%3A%20%231d3e81%3B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0A%2Epl%2Dmq%20%7B%0Acolor%3A%20%23008080%3B%0A%7D%0A%2Epl%2Dmi%20%7B%0Acolor%3A%20%23333%3B%0Afont%2Dstyle%3A%20italic%3B%0A%7D%0A%2Epl%2Dmb%20%7B%0Acolor%3A%20%23333%3B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0A%2Epl%2Dmd%20%7B%0Abackground%2Dcolor%3A%20%23ffecec%3B%0Acolor%3A%20%23bd2c00%3B%0A%7D%0A%2Epl%2Dmi1%20%7B%0Abackground%2Dcolor%3A%20%23eaffea%3B%0Acolor%3A%20%2355a532%3B%0A%7D%0A%2Epl%2Dmdr%20%7B%0Acolor%3A%20%23795da3%3B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0A%2Epl%2Dmo%20%7B%0Acolor%3A%20%231d3e81%3B%0A%7D%0Akbd%20%7B%0Adisplay%3A%20inline%2Dblock%3B%0Apadding%3A%203px%205px%3B%0Afont%3A%2011px%20Consolas%2C%20%22Liberation%20Mono%22%2C%20Menlo%2C%20Courier%2C%20monospace%3B%0Aline%2Dheight%3A%2010px%3B%0Acolor%3A%20%23555%3B%0Avertical%2Dalign%3A%20middle%3B%0Abackground%2Dcolor%3A%20%23fcfcfc%3B%0Aborder%3A%20solid%201px%20%23ccc%3B%0Aborder%2Dbottom%2Dcolor%3A%20%23bbb%3B%0Aborder%2Dradius%3A%203px%3B%0Abox%2Dshadow%3A%20inset%200%20%2D1px%200%20%23bbb%3B%0A%7D%0A%2Etask%2Dlist%2Ditem%20%7B%0Alist%2Dstyle%2Dtype%3A%20none%3B%0A%7D%0A%2Etask%2Dlist%2Ditem%2B%2Etask%2Dlist%2Ditem%20%7B%0Amargin%2Dtop%3A%203px%3B%0A%7D%0A%2Etask%2Dlist%2Ditem%20input%20%7B%0Amargin%3A%200%200%2E35em%200%2E25em%20%2D1%2E6em%3B%0Avertical%2Dalign%3A%20middle%3B%0A%7D%0A%3Achecked%2B%2Eradio%2Dlabel%20%7B%0Az%2Dindex%3A%201%3B%0Aposition%3A%20relative%3B%0Aborder%2Dcolor%3A%20%234078c0%3B%0A%7D%0A%2EsourceLine%20%7B%0Adisplay%3A%20inline%2Dblock%3B%0A%7D%0Acode%20%2Ekw%20%7B%20color%3A%20%23000000%3B%20%7D%0Acode%20%2Edt%20%7B%20color%3A%20%23ed6a43%3B%20%7D%0Acode%20%2Edv%20%7B%20color%3A%20%23009999%3B%20%7D%0Acode%20%2Ebn%20%7B%20color%3A%20%23009999%3B%20%7D%0Acode%20%2Efl%20%7B%20color%3A%20%23009999%3B%20%7D%0Acode%20%2Ech%20%7B%20color%3A%20%23009999%3B%20%7D%0Acode%20%2Est%20%7B%20color%3A%20%23183691%3B%20%7D%0Acode%20%2Eco%20%7B%20color%3A%20%23969896%3B%20%7D%0Acode%20%2Eot%20%7B%20color%3A%20%230086b3%3B%20%7D%0Acode%20%2Eal%20%7B%20color%3A%20%23a61717%3B%20%7D%0Acode%20%2Efu%20%7B%20color%3A%20%2363a35c%3B%20%7D%0Acode%20%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%0Acode%20%2Ewa%20%7B%20color%3A%20%23000000%3B%20%7D%0Acode%20%2Ecn%20%7B%20color%3A%20%23008080%3B%20%7D%0Acode%20%2Esc%20%7B%20color%3A%20%23008080%3B%20%7D%0Acode%20%2Evs%20%7B%20color%3A%20%23183691%3B%20%7D%0Acode%20%2Ess%20%7B%20color%3A%20%23183691%3B%20%7D%0Acode%20%2Eim%20%7B%20color%3A%20%23000000%3B%20%7D%0Acode%20%2Eva%20%7Bcolor%3A%20%23008080%3B%20%7D%0Acode%20%2Ecf%20%7B%20color%3A%20%23000000%3B%20%7D%0Acode%20%2Eop%20%7B%20color%3A%20%23000000%3B%20%7D%0Acode%20%2Ebu%20%7B%20color%3A%20%23000000%3B%20%7D%0Acode%20%2Eex%20%7B%20color%3A%20%23000000%3B%20%7D%0Acode%20%2Epp%20%7B%20color%3A%20%23999999%3B%20%7D%0Acode%20%2Eat%20%7B%20color%3A%20%23008080%3B%20%7D%0Acode%20%2Edo%20%7B%20color%3A%20%23969896%3B%20%7D%0Acode%20%2Ean%20%7B%20color%3A%20%23008080%3B%20%7D%0Acode%20%2Ecv%20%7B%20color%3A%20%23008080%3B%20%7D%0Acode%20%2Ein%20%7B%20color%3A%20%23008080%3B%20%7D%0A" rel="stylesheet">
+<style>
+body {
+  box-sizing: border-box;
+  min-width: 200px;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 45px;
+  padding-top: 0px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1 id="st558-project-1">ST558 Project 1</h1>
+<p>Mu-Tien, Lee<br />
+2020,09.04</p>
+<ul>
+<li><a href="#require-package">Require Package</a></li>
+<li><a href="#data-cleaning">Data cleaning</a>
+<ul>
+<li><a href="#building-functions-to-reach-statsapi">Building functions to reach statsAPI</a></li>
+<li><a href="#building-functions-to-reach-recordapi">Building functions to reach recordAPI</a></li>
+<li><a href="#accessory-for-api-endpoints">accessory for API endpoints</a></li>
+</ul></li>
+<li><a href="#data-analysis">Data analysis</a></li>
+<li><a href="#renderproject1.rmd-output_format-github_document-output_fileireadme.md">render(&quot;Project1.Rmd&quot;, output_format =&quot;github_document&quot;, output_file=I(&quot;README.md&quot;))</a></li>
+</ul>
+<h2 id="require-package">Require Package</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#install.packages(&quot;qwraps2&quot;)</span>
+<span class="kw">library</span>(rmarkdown)
+<span class="kw">library</span>(dplyr)
+<span class="kw">library</span>(tidyverse)
+<span class="kw">library</span>(RSQLite)
+<span class="kw">library</span>(bigrquery)
+<span class="kw">library</span>(httr)
+<span class="kw">library</span>(jsonlite)
+<span class="kw">library</span>(ggplot2)
+<span class="kw">library</span>(qwraps2)</code></pre></div>
+<h2 id="data-cleaning">Data cleaning</h2>
+<h3 id="building-functions-to-reach-statsapi">Building functions to reach statsAPI</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">statsAPI &lt;-<span class="st"> </span><span class="cf">function</span>(x,<span class="dt">teamid=</span><span class="ot">NULL</span>,<span class="dt">year=</span><span class="ot">NULL</span>, ...){
+<span class="co">#setting up base url for stats API</span>
+base_url &lt;-<span class="st">&quot;https://statsapi.web.nhl.com/api/v1/teams&quot;</span>
+modifiers &lt;-<span class="st"> </span>x
+
+<span class="co">#construct the full path</span>
+<span class="cf">if</span> (<span class="kw">is.null</span>(teamid)){
+full_url &lt;-<span class="st"> </span><span class="kw">paste0</span>(base_url, <span class="st">&quot;?&quot;</span>, modifiers)
+}
+<span class="cf">else</span> {
+  full_url &lt;-<span class="st"> </span><span class="kw">paste0</span>(base_url, <span class="st">&quot;/&quot;</span>, teamid, <span class="st">&quot;?&quot;</span>, modifiers)
+  } 
+
+<span class="co"># retrieve information in raw form</span>
+<span class="kw">GET</span>(full_url)
+<span class="co">#transfer into JSON text form</span>
+text &lt;-<span class="st"> </span><span class="kw">content</span>(<span class="kw">GET</span>(full_url),<span class="st">&quot;text&quot;</span>)
+<span class="co">#convert it to a list</span>
+mydata &lt;-<span class="st"> </span><span class="kw">fromJSON</span>(text, <span class="dt">flatten =</span> <span class="ot">TRUE</span>) 
+mydata&lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(mydata)
+<span class="kw">return</span>(mydata)
+}
+
+m&lt;-<span class="st"> </span><span class="kw">statsAPI</span>(<span class="st">&quot;expand=team.roster&quot;</span>)
+n&lt;-<span class="st"> </span><span class="kw">statsAPI</span>(<span class="st">&quot;expand=person.names&quot;</span>)
+o&lt;-<span class="st"> </span><span class="kw">statsAPI</span>(<span class="st">&quot;expand=team.schedule.next&quot;</span>)
+p&lt;-<span class="st"> </span><span class="kw">statsAPI</span>(<span class="st">&quot;expand=team.schedule.previous&quot;</span>)
+q&lt;-<span class="st"> </span><span class="kw">statsAPI</span>(<span class="st">&quot;expand=team.stats&quot;</span>)
+r&lt;-<span class="st"> </span><span class="kw">statsAPI</span>(<span class="st">&quot;expand=team.roster&amp;season=20142015&quot;</span>)
+s&lt;-<span class="st"> </span><span class="kw">statsAPI</span>(<span class="st">&quot;teamId=4,5,29&quot;</span>)
+t&lt;-<span class="st"> </span><span class="kw">statsAPI</span>(<span class="st">&quot;stats=statsSingleSeasonPlayoffs&quot;</span>)</code></pre></div>
+<h3 id="building-functions-to-reach-recordapi">Building functions to reach recordAPI</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">recordAPI &lt;-<span class="st"> </span><span class="cf">function</span>(x,<span class="dt">teamid=</span><span class="ot">NULL</span>,...){
+<span class="co">#setting up base url for stats API</span>
+base_url &lt;-<span class="st">&quot;https://records.nhl.com/site/api&quot;</span>
+modifiers &lt;-<span class="st"> </span>x
+
+<span class="cf">if</span> (<span class="kw">is.null</span>(teamid)){
+    full_url &lt;-<span class="st"> </span><span class="kw">paste0</span>(base_url, <span class="st">&quot;/&quot;</span>, modifiers)
+  }
+<span class="cf">else</span> <span class="cf">if</span> (x <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;franchise&quot;</span>,<span class="st">&quot;franchise-team-totals&quot;</span>)) {
+    <span class="kw">stop</span>(<span class="st">&quot;Sorry,table franchise and franchise-team-totals cannot indicate team&quot;</span>)
+  }
+<span class="cf">else</span> {
+  full_url &lt;-<span class="st"> </span><span class="kw">paste0</span>(base_url, <span class="st">&quot;/&quot;</span>, modifiers,<span class="st">&quot;?cayenneExp=franchiseId=&quot;</span>, teamid)
+  } 
+
+<span class="co"># retrieve information in raw form</span>
+<span class="kw">GET</span>(full_url)
+<span class="co">#transfer into JSON text form</span>
+text &lt;-<span class="st"> </span><span class="kw">content</span>(<span class="kw">GET</span>(full_url),<span class="st">&quot;text&quot;</span>)
+<span class="co">#convert it to a list</span>
+mydata &lt;-<span class="st"> </span><span class="kw">fromJSON</span>(text, <span class="dt">flatten =</span> <span class="ot">TRUE</span>) 
+mydata&lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(mydata)
+<span class="kw">return</span>(mydata)
+}
+
+a&lt;-<span class="kw">recordAPI</span>(<span class="st">&quot;franchise&quot;</span>)
+b&lt;-<span class="kw">recordAPI</span>(<span class="st">&quot;franchise-team-totals&quot;</span>)
+c&lt;-<span class="kw">recordAPI</span>(<span class="st">&quot;franchise-season-records&quot;</span>,<span class="dv">1</span>)
+d&lt;-<span class="kw">recordAPI</span>(<span class="st">&quot;franchise-goalie-records&quot;</span>,<span class="dv">1</span>)
+e&lt;-<span class="kw">recordAPI</span>(<span class="st">&quot;franchise-skater-records&quot;</span>,<span class="dv">1</span>)</code></pre></div>
+<h3 id="accessory-for-api-endpoints">accessory for API endpoints</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">endpoints &lt;-<span class="st"> </span><span class="cf">function</span>(x, <span class="dt">teamid=</span><span class="ot">NULL</span>, <span class="dt">year=</span><span class="ot">NULL</span>, ...){
+  record &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;franchise&quot;</span>,<span class="st">&quot;franchise-team-totals&quot;</span>,<span class="st">&quot;franchise-season-records&quot;</span>, <span class="st">&quot;franchise-goalie-records&quot;</span>, <span class="st">&quot;franchise-skater-records&quot;</span>)
+  stats &lt;-<span class="st"> </span><span class="kw">c</span>()
+  <span class="cf">if</span> (x <span class="op">%in%</span><span class="st"> </span>record) <span class="kw">recordAPI</span>(x,teamid,...)
+  <span class="cf">else</span> <span class="cf">if</span> (x <span class="op">%in%</span><span class="st"> </span>stats) <span class="kw">statsAPI</span>(x, teamid)
+  <span class="cf">else</span> <span class="kw">stop</span>(<span class="st">&quot;Please enter the correct name of your enpoints&quot;</span>)
+}
+try&lt;-<span class="kw">endpoints</span>(<span class="st">&quot;franchise-season-records&quot;</span>,<span class="dv">1</span>)</code></pre></div>
+<h2 id="data-analysis">Data analysis</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">montreal &lt;-<span class="kw">recordAPI</span>(<span class="st">&quot;franchise-season-records&quot;</span>,<span class="dv">8</span>)
+tornonto &lt;-<span class="kw">recordAPI</span>(<span class="st">&quot;franchise-season-records&quot;</span>,<span class="dv">10</span>)
+detroit &lt;-<span class="kw">recordAPI</span>(<span class="st">&quot;franchise-season-records&quot;</span>,<span class="dv">17</span>)
+carolinas &lt;-<span class="kw">recordAPI</span>(<span class="st">&quot;franchise-season-records&quot;</span>,<span class="dv">12</span>)
+seasonrecord &lt;-<span class="st"> </span><span class="kw">rbind.data.frame</span>(<span class="dt">Motreal_Canadiens=</span>montreal, <span class="dt">Tornonto_MapleLeafs=</span>tornonto, <span class="dt">Detroit_RedWings=</span>detroit, <span class="dt">Carolinas_Hurricanes=</span>carolinas)
+seasonrecord</code></pre></div>
+<pre><code>##                      data.id data.fewestGoals data.fewestGoalsAgainst
+## Motreal_Canadiens         44               NA                      NA
+## Tornonto_MapleLeafs        3              150                     177
+## Detroit_RedWings           5              182                     188
+## Carolinas_Hurricanes      17              145                     132
+##                      data.fewestGoalsAgainstSeasons data.fewestGoalsSeasons
+## Motreal_Canadiens                              &lt;NA&gt;                    &lt;NA&gt;
+## Tornonto_MapleLeafs                    1970-71 (78)            1954-55 (70)
+## Detroit_RedWings                       1997-98 (82)            1969-70 (76)
+## Carolinas_Hurricanes                   1953-54 (70)            2019-20 (82)
+##                      data.fewestLosses   data.fewestLossesSeasons data.fewestPoints
+## Motreal_Canadiens                   NA                       &lt;NA&gt;                NA
+## Tornonto_MapleLeafs                 17               1971-72 (78)                47
+## Detroit_RedWings                    21 1992-93 (84), 2016-17 (82)                38
+## Carolinas_Hurricanes                13 1950-51 (70), 1995-96 (82)                39
+##                      data.fewestPointsSeasons data.fewestTies data.fewestTiesSeasons
+## Motreal_Canadiens                        &lt;NA&gt;              NA                   &lt;NA&gt;
+## Tornonto_MapleLeafs              1965-66 (70)               4           2001-02 (82)
+## Detroit_RedWings                 1983-84 (80)               4           1995-96 (82)
+## Carolinas_Hurricanes             2019-20 (82)               4           1966-67 (70)
+##                      data.fewestWins                   data.fewestWinsSeasons
+## Motreal_Canadiens                 NA                                     &lt;NA&gt;
+## Tornonto_MapleLeafs               17 1952-53 (70), 1954-55 (70), 1959-60 (70)
+## Detroit_RedWings                  16                             1983-84 (80)
+## Carolinas_Hurricanes              16                             1976-77 (80)
+##                      data.franchiseId  data.franchiseName data.homeLossStreak
+## Motreal_Canadiens                   8  Brooklyn Americans                   7
+## Tornonto_MapleLeafs                10    New York Rangers                   7
+## Detroit_RedWings                   17 Pittsburgh Penguins                  14
+## Carolinas_Hurricanes               12   Detroit Red Wings                   7
+##                                                  data.homeLossStreakDates
+## Motreal_Canadiens                               Nov 23 1933 - Dec 26 1933
+## Tornonto_MapleLeafs  Oct 20 1976 - Nov 14 1976, Mar 24 1993 - Apr 14 1993
+## Detroit_RedWings                                Dec 31 2003 - Feb 22 2004
+## Carolinas_Hurricanes                            Feb 20 1982 - Mar 25 1982
+##                      data.homePointStreak
+## Motreal_Canadiens                       9
+## Tornonto_MapleLeafs                    24
+## Detroit_RedWings                       20
+## Carolinas_Hurricanes                   24
+##                                                 data.homePointStreakDates
+## Motreal_Canadiens                               Dec 13 1938 - Jan 24 1939
+## Tornonto_MapleLeafs  Oct 14 1970 - Jan 31 1971, Oct 24 1995 - Feb 15 1996
+## Detroit_RedWings                                Nov 30 1974 - Feb 22 1975
+## Carolinas_Hurricanes                            Nov 05 2011 - Feb 23 2012
+##                      data.homeWinStreak
+## Motreal_Canadiens                     5
+## Tornonto_MapleLeafs                  14
+## Detroit_RedWings                     13
+## Carolinas_Hurricanes                 23
+##                                                                              data.homeWinStreakDates
+## Motreal_Canadiens    Dec 20 1926 - Jan 04 1927, Nov 22 1928 - Dec 18 1928, Dec 13 1938 - Jan 01 1939
+## Tornonto_MapleLeafs                                                        Dec 19 1939 - Feb 25 1940
+## Detroit_RedWings                                                           Nov 15 2013 - Jan 15 2014
+## Carolinas_Hurricanes                                                       Nov 05 2011 - Feb 19 2012
+##                      data.homeWinlessStreak data.homeWinlessStreakDates
+## Motreal_Canadiens                        11   Jan 07 1926 - Feb 18 1926
+## Tornonto_MapleLeafs                      10   Jan 30 1944 - Mar 19 1944
+## Detroit_RedWings                         16   Dec 31 2003 - Mar 04 2004
+## Carolinas_Hurricanes                     10   Dec 11 1985 - Jan 18 1986
+##                      data.lossStreak      data.lossStreakDates data.mostGameGoals
+## Motreal_Canadiens                 10 Nov 22 1941 - Dec 16 1941                  9
+## Tornonto_MapleLeafs               11 Oct 30 1943 - Nov 27 1943                 12
+## Detroit_RedWings                  13 Jan 13 2004 - Feb 12 2004                 12
+## Carolinas_Hurricanes              14 Feb 24 1982 - Mar 25 1982                 15
+##                                                         data.mostGameGoalsDates
+## Motreal_Canadiens                                   Mar 18 1937 - CHI 4 @ NYA 9
+## Tornonto_MapleLeafs                                Nov 21 1971 - CGS 1 @ NYR 12
+## Detroit_RedWings     Mar 15 1975 - WSH 1 @ PIT 12, Dec 26 1991 - TOR 1 @ PIT 12
+## Carolinas_Hurricanes                               Jan 23 1944 - NYR 0 @ DET 15
+##                      data.mostGoals data.mostGoalsAgainst data.mostGoalsAgainstSeasons
+## Motreal_Canadiens               133                   186                 1940-41 (48)
+## Tornonto_MapleLeafs             321                   345                 1984-85 (80)
+## Detroit_RedWings                367                   394                 1982-83 (80)
+## Carolinas_Hurricanes            369                   415                 1985-86 (80)
+##                      data.mostGoalsSeasons data.mostLosses
+## Motreal_Canadiens             1941-42 (48)              29
+## Tornonto_MapleLeafs           1991-92 (80)              44
+## Detroit_RedWings              1992-93 (84)              58
+## Carolinas_Hurricanes          1992-93 (84)              57
+##                                                      data.mostLossesSeasons
+## Motreal_Canadiens    1936-37 (48), 1939-40 (48), 1940-41 (48), 1941-42 (48)
+## Tornonto_MapleLeafs                                            1984-85 (80)
+## Detroit_RedWings                                               1983-84 (80)
+## Carolinas_Hurricanes                                           1985-86 (80)
+##                      data.mostPenaltyMinutes data.mostPenaltyMinutesSeasons
+## Motreal_Canadiens                        610                   1927-28 (44)
+## Tornonto_MapleLeafs                     2021                   1989-90 (80)
+## Detroit_RedWings                        2674                   1988-89 (80)
+## Carolinas_Hurricanes                    2391                   1987-88 (80)
+##                      data.mostPoints data.mostPointsSeasons data.mostShutouts
+## Motreal_Canadiens                 50           1928-29 (44)                16
+## Tornonto_MapleLeafs              113           2014-15 (82)                13
+## Detroit_RedWings                 119           1992-93 (84)                10
+## Carolinas_Hurricanes             131           1995-96 (82)                13
+##                      data.mostShutoutsSeasons data.mostTies
+## Motreal_Canadiens                1928-29 (44)            12
+## Tornonto_MapleLeafs              1928-29 (44)            21
+## Detroit_RedWings                 2014-15 (82)            20
+## Carolinas_Hurricanes             1953-54 (70)            18
+##                                          data.mostTiesSeasons data.mostWins
+## Motreal_Canadiens                                1928-29 (44)            19
+## Tornonto_MapleLeafs                              1950-51 (70)            53
+## Detroit_RedWings                                 1970-71 (78)            56
+## Carolinas_Hurricanes 1952-53 (70), 1980-81 (80), 1996-97 (82)            62
+##                            data.mostWinsSeasons data.pointStreak
+## Motreal_Canadiens    1928-29 (44), 1937-38 (48)                8
+## Tornonto_MapleLeafs                2014-15 (82)               19
+## Detroit_RedWings                   1992-93 (84)               18
+## Carolinas_Hurricanes               1995-96 (82)               20
+##                          data.pointStreakDates data.roadLossStreak
+## Motreal_Canadiens    Jan 01 1933 - Jan 17 1933                  10
+## Tornonto_MapleLeafs  Nov 23 1939 - Jan 13 1940                  10
+## Detroit_RedWings     Mar 09 1993 - Apr 14 1993                  18
+## Carolinas_Hurricanes Mar 09 2006 - Apr 17 2006                  14
+##                                                  data.roadLossStreakDates
+## Motreal_Canadiens                               Nov 16 1929 - Jan 04 1930
+## Tornonto_MapleLeafs  Oct 30 1943 - Dec 23 1943, Feb 08 1961 - Mar 15 1961
+## Detroit_RedWings                                Dec 23 1982 - Mar 04 1983
+## Carolinas_Hurricanes                            Oct 19 1966 - Dec 21 1966
+##                      data.roadPointStreak
+## Motreal_Canadiens                       5
+## Tornonto_MapleLeafs                    11
+## Detroit_RedWings                        8
+## Carolinas_Hurricanes                   15
+##                                                                            data.roadPointStreakDates
+## Motreal_Canadiens    Dec 25 1928 - Jan 27 1929, Nov 12 1931 - Dec 08 1931, Dec 12 1933 - Jan 13 1934
+## Tornonto_MapleLeafs                                                        Nov 05 1939 - Jan 13 1940
+## Detroit_RedWings                                Jan 13 2007 - Feb 16 2007, Mar 11 2016 - Apr 07 2016
+## Carolinas_Hurricanes                                                       Oct 18 1951 - Dec 20 1951
+##                      data.roadWinStreak
+## Motreal_Canadiens                     3
+## Tornonto_MapleLeafs                   9
+## Detroit_RedWings                      8
+## Carolinas_Hurricanes                 12
+##                                                   data.roadWinStreakDates
+## Motreal_Canadiens    Feb 19 1926 - Mar 02 1926, Dec 19 1937 - Jan 01 1938
+## Tornonto_MapleLeafs                             Jan 16 2020 - Feb 27 2020
+## Detroit_RedWings                                Mar 11 2016 - Apr 07 2016
+## Carolinas_Hurricanes                            Mar 01 2006 - Apr 15 2006
+##                      data.roadWinlessStreak
+## Motreal_Canadiens                        22
+## Tornonto_MapleLeafs                      16
+## Detroit_RedWings                         18
+## Carolinas_Hurricanes                     26
+##                                               data.roadWinlessStreakDates
+## Motreal_Canadiens                               Nov 19 1940 - Mar 16 1941
+## Tornonto_MapleLeafs                             Oct 09 1952 - Dec 20 1952
+## Detroit_RedWings     Oct 25 1970 - Jan 14 1971, Dec 23 1982 - Mar 04 1983
+## Carolinas_Hurricanes                            Dec 15 1976 - Apr 03 1977
+##                      data.winStreak
+## Motreal_Canadiens                 5
+## Tornonto_MapleLeafs              10
+## Detroit_RedWings                 17
+## Carolinas_Hurricanes              9
+##                                                                                                                                                                                              data.winStreakDates
+## Motreal_Canadiens                                                                                                                                                                      Dec 09 1928 - Dec 18 1928
+## Tornonto_MapleLeafs                                                                                                                                         Dec 19 1939 - Jan 13 1940, Jan 19 1973 - Feb 10 1973
+## Detroit_RedWings                                                                                                                                                                       Mar 09 1993 - Apr 10 1993
+## Carolinas_Hurricanes Mar 03 1951 - Mar 21 1951, Feb 27 1955 - Mar 20 1955, Dec 12 1995 - Dec 31 1995, Mar 03 1996 - Mar 22 1996, Oct 13 2005 - Nov 01 2005, Oct 25 2006 - Nov 14 2006, Oct 18 2007 - Nov 09 2007
+##                      data.winlessStreak   data.winlessStreakDates total
+## Motreal_Canadiens                    NA                      &lt;NA&gt;     1
+## Tornonto_MapleLeafs                   5 Oct 12 2019 - Oct 22 2019     1
+## Detroit_RedWings                      6 Feb 20 2020 - Feb 29 2020     1
+## Carolinas_Hurricanes                 12 Nov 14 2019 - Dec 10 2019     1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">montreal &lt;-<span class="kw">recordAPI</span>(<span class="st">&quot;franchise-goalie-records&quot;</span>,<span class="dv">8</span>)
+tornonto &lt;-<span class="kw">recordAPI</span>(<span class="st">&quot;franchise-goalie-records&quot;</span>,<span class="dv">10</span>)
+detroit &lt;-<span class="kw">recordAPI</span>(<span class="st">&quot;franchise-goalie-records&quot;</span>,<span class="dv">17</span>)
+carolinas &lt;-<span class="kw">recordAPI</span>(<span class="st">&quot;franchise-goalie-records&quot;</span>,<span class="dv">12</span>)
+goalierecord &lt;-<span class="st"> </span><span class="kw">rbind.data.frame</span>(<span class="dt">Motreal_Canadiens=</span>montreal, <span class="dt">Tornonto_MapleLeafs=</span>tornonto, <span class="dt">Detroit_RedWings=</span>detroit, <span class="dt">Carolinas_Hurricanes=</span>carolinas)
+
+montreal &lt;-<span class="kw">recordAPI</span>(<span class="st">&quot;franchise-skater-records&quot;</span>,<span class="dv">8</span>)
+tornonto &lt;-<span class="kw">recordAPI</span>(<span class="st">&quot;franchise-skater-records&quot;</span>,<span class="dv">10</span>)
+detroit &lt;-<span class="kw">recordAPI</span>(<span class="st">&quot;franchise-skater-records&quot;</span>,<span class="dv">17</span>)
+carolinas &lt;-<span class="kw">recordAPI</span>(<span class="st">&quot;franchise-skater-records&quot;</span>,<span class="dv">12</span>)
+skaterrecord &lt;-<span class="st"> </span><span class="kw">rbind.data.frame</span>(<span class="dt">Motreal_Canadiens=</span>montreal, <span class="dt">Tornonto_MapleLeafs=</span>tornonto, <span class="dt">Detroit_RedWings=</span>detroit, <span class="dt">Carolinas_Hurricanes=</span>carolinas)
+
+mydata &lt;-<span class="st"> </span><span class="kw">statsAPI</span>(<span class="st">&quot;teamId=8,10,17,12&quot;</span>)
+
+
+
+bar1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data=</span>new,<span class="kw">aes</span>(<span class="dt">x=</span>data.gamesPlayed))
+bar1<span class="op">+</span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">fill=</span>teams.division.name),<span class="dt">binwidth =</span> <span class="dv">500</span>, <span class="dt">position=</span> <span class="st">&quot;dodge&quot;</span>)</code></pre></div>
+<p><img src="data:image/png;base64,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" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">teamtotal&lt;-<span class="kw">recordAPI</span>(<span class="st">&quot;franchise-team-totals&quot;</span>)<span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="kw">is.na</span>(data.lastSeasonId))
+division &lt;-<span class="st"> </span><span class="kw">statsAPI</span>(<span class="st">&quot;expand=team.roster&quot;</span>)<span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(teams.id, teams.division.name, teams.division.nameShort, teams.conference.name) <span class="op">%&gt;%</span><span class="kw">rename</span>(<span class="dt">data.teamId=</span>teams.id)
+
+new &lt;-<span class="st"> </span><span class="kw">left_join</span>(teamtotal,division, <span class="dt">by=</span><span class="st">&quot;data.teamId&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">winrate=</span>data.wins<span class="op">/</span>data.gamesPlayed, <span class="dt">winlossrate=</span>data.wins<span class="op">/</span>data.losses, <span class="dt">overtimelossrate=</span> data.overtimeLosses<span class="op">/</span>data.losses, <span class="dt">goalpergame=</span>data.goalsFor<span class="op">/</span>data.gamesPlayed)
+
+<span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="st"> </span><span class="kw">nrow</span>(new)){
+  <span class="cf">if</span> (new<span class="op">$</span>data.firstSeasonId[i]<span class="op">/</span><span class="dv">10000</span><span class="op">&lt;</span><span class="dv">1943</span>){
+    new<span class="op">$</span>age[i]&lt;-<span class="st"> &quot;Senior&quot;</span>
+  }
+  <span class="cf">else</span> <span class="cf">if</span> (new<span class="op">$</span>data.firstSeasonId[i]<span class="op">/</span><span class="dv">10000</span><span class="op">&lt;</span><span class="dv">1968</span>){
+    new<span class="op">$</span>age[i]&lt;-<span class="st"> &quot;Junior&quot;</span>
+  }
+  <span class="cf">else</span> <span class="cf">if</span> (new<span class="op">$</span>data.firstSeasonId[i]<span class="op">/</span><span class="dv">10000</span><span class="op">&lt;</span><span class="dv">1993</span>){
+    new<span class="op">$</span>age[i]&lt;-<span class="st"> &quot;Sophomore&quot;</span>
+  }
+  <span class="cf">else</span> {
+    new<span class="op">$</span>age[i]&lt;-<span class="st"> &quot;Freshman&quot;</span>
+  }
+}</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">levels</span>(new<span class="op">$</span>age)&lt;-<span class="kw">list</span>(<span class="st">&quot;1917-1942&quot;</span>=<span class="st">&quot;Freshman&quot;</span>,<span class="st">&quot;1942-1967&quot;</span>=<span class="st">&quot;Sophomore&quot;</span>,<span class="st">&quot;1967-1992&quot;</span>=<span class="st">&quot;Junior&quot;</span>,<span class="st">&quot;1992-2017&quot;</span>=<span class="st">&quot;Senior&quot;</span>)
+table1 &lt;-<span class="st"> </span><span class="kw">table</span>(new<span class="op">$</span>teams.division.name,new<span class="op">$</span>age)
+table1 </code></pre></div>
+<pre><code>##               
+##                Freshman Junior Senior Sophomore
+##   Atlantic            2      0      8         6
+##   Central            10      2      2         0
+##   Metropolitan        4      4      2         6
+##   Pacific             6      2      0         8</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">type2 &lt;-<span class="st"> </span>new <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(data.gameTypeId<span class="op">==</span><span class="dv">2</span>)
+type3 &lt;-<span class="st"> </span>new <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(data.gameTypeId<span class="op">==</span><span class="dv">3</span>)
+histo1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data=</span>type2,<span class="kw">aes</span>(<span class="dt">x=</span>data.penaltyMinutes))
+histo1<span class="op">+</span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">10000</span>)</code></pre></div>
+<p><img src="data:image/png;base64,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" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">histo2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data=</span>type3,<span class="kw">aes</span>(<span class="dt">x=</span>data.penaltyMinutes))
+histo2<span class="op">+</span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">800</span>)</code></pre></div>
+<p><img src="data:image/png;base64,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" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">calculate &lt;-<span class="st"> </span><span class="cf">function</span>(x,...){
+  data &lt;-<span class="st"> </span>new <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(data.gameTypeId <span class="op">==</span><span class="st"> </span>x)<span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(winrate,winlossrate,overtimelossrate,goalpergame)
+    <span class="kw">kable</span>(<span class="kw">apply</span>(data,<span class="dv">2</span>, summary), <span class="dt">digit =</span> <span class="dv">4</span>,<span class="dt">caption =</span> <span class="kw">paste0</span>(<span class="st">&quot;Summary of gametpye&quot;</span>, x))
+}
+<span class="kw">calculate</span>(<span class="dv">2</span>)</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">winrate</th>
+<th align="right">winlossrate</th>
+<th align="right">overtimelossrate</th>
+<th align="right">goalpergame</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Min.</td>
+<td align="right">0.3958</td>
+<td align="right">0.8051</td>
+<td align="right">0.0546</td>
+<td align="right">2.4833</td>
+</tr>
+<tr class="even">
+<td align="left">1st Qu.</td>
+<td align="right">0.4413</td>
+<td align="right">1.0471</td>
+<td align="right">0.0890</td>
+<td align="right">2.8356</td>
+</tr>
+<tr class="odd">
+<td align="left">Median</td>
+<td align="right">0.4605</td>
+<td align="right">1.1643</td>
+<td align="right">0.1252</td>
+<td align="right">3.0541</td>
+</tr>
+<tr class="even">
+<td align="left">Mean</td>
+<td align="right">0.4639</td>
+<td align="right">1.1710</td>
+<td align="right">0.1508</td>
+<td align="right">2.9862</td>
+</tr>
+<tr class="odd">
+<td align="left">3rd Qu.</td>
+<td align="right">0.4837</td>
+<td align="right">1.2694</td>
+<td align="right">0.2157</td>
+<td align="right">3.1771</td>
+</tr>
+<tr class="even">
+<td align="left">Max.</td>
+<td align="right">0.5660</td>
+<td align="right">1.6625</td>
+<td align="right">0.2750</td>
+<td align="right">3.3322</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">calculate</span>(<span class="dv">3</span>)</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">winrate</th>
+<th align="right">winlossrate</th>
+<th align="right">overtimelossrate</th>
+<th align="right">goalpergame</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Min.</td>
+<td align="right">0.3506</td>
+<td align="right">0.5400</td>
+<td align="right">0.0000</td>
+<td align="right">2.2597</td>
+</tr>
+<tr class="even">
+<td align="left">1st Qu.</td>
+<td align="right">0.4536</td>
+<td align="right">0.8321</td>
+<td align="right">0.0000</td>
+<td align="right">2.5917</td>
+</tr>
+<tr class="odd">
+<td align="left">Median</td>
+<td align="right">0.4891</td>
+<td align="right">0.9745</td>
+<td align="right">0.0000</td>
+<td align="right">2.7400</td>
+</tr>
+<tr class="even">
+<td align="left">Mean</td>
+<td align="right">0.4906</td>
+<td align="right">0.9962</td>
+<td align="right">0.0007</td>
+<td align="right">2.7762</td>
+</tr>
+<tr class="odd">
+<td align="left">3rd Qu.</td>
+<td align="right">0.5354</td>
+<td align="right">1.1523</td>
+<td align="right">0.0000</td>
+<td align="right">2.9395</td>
+</tr>
+<tr class="even">
+<td align="left">Max.</td>
+<td align="right">0.5970</td>
+<td align="right">1.4815</td>
+<td align="right">0.0111</td>
+<td align="right">3.6791</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> <span class="co">#if(x==2) caption=&quot;summary of regular season&quot; else caption=&quot;summary of playoff season&quot;</span>
+<span class="co">#caption = paste0(&quot;Summary of gametpyre&quot;, x)</span></code></pre></div>
+<h1 id="renderproject1.rmd-output_format-github_document-output_fileireadme.md">render(&quot;Project1.Rmd&quot;, output_format =&quot;github_document&quot;, output_file=I(&quot;README.md&quot;))</h1>
+
+</body>
+</html>
