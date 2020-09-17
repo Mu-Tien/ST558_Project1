@@ -148,6 +148,7 @@ division <- statsAPI("expand=team.roster")%>% select(teams.id, teams.division.na
 new <- left_join(teamtotal,division, by="data.teamId") %>% mutate(winrate=data.wins/data.gamesPlayed, winlossrate=data.wins/data.losses, overtimelossrate= data.overtimeLosses/data.losses, goalpergame=data.goalsFor/data.gamesPlayed)
 
 for (i in 1: nrow(new)){
+  
   if (new$data.firstSeasonId[i]/10000<1943){
     new$age[i]<- "Senior"
   }
@@ -165,10 +166,10 @@ for (i in 1: nrow(new)){
 ```
 
 ```{r contingency table}
-
+new$age <- as.factor(new$age)
 levels(new$age)<-list("1917-1942"="Freshman","1942-1967"="Sophomore","1967-1992"="Junior","1992-2017"="Senior")
-table1 <- table(new$teams.division.name,new$age)
-table1 
+table1 <- table(new$teams.division.name,new$age) 
+kable(table1) 
 
 ```
 

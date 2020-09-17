@@ -320,6 +320,7 @@ division &lt;-<span class="st"> </span><span class="kw">statsAPI</span>(<span cl
 new &lt;-<span class="st"> </span><span class="kw">left_join</span>(teamtotal,division, <span class="dt">by=</span><span class="st">&quot;data.teamId&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">winrate=</span>data.wins<span class="op">/</span>data.gamesPlayed, <span class="dt">winlossrate=</span>data.wins<span class="op">/</span>data.losses, <span class="dt">overtimelossrate=</span> data.overtimeLosses<span class="op">/</span>data.losses, <span class="dt">goalpergame=</span>data.goalsFor<span class="op">/</span>data.gamesPlayed)
 
 <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="st"> </span><span class="kw">nrow</span>(new)){
+  
   <span class="cf">if</span> (new<span class="op">$</span>data.firstSeasonId[i]<span class="op">/</span><span class="dv">10000</span><span class="op">&lt;</span><span class="dv">1943</span>){
     new<span class="op">$</span>age[i]&lt;-<span class="st"> &quot;Senior&quot;</span>
   }
@@ -333,15 +334,51 @@ new &lt;-<span class="st"> </span><span class="kw">left_join</span>(teamtotal,di
     new<span class="op">$</span>age[i]&lt;-<span class="st"> &quot;Freshman&quot;</span>
   }
 }</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">levels</span>(new<span class="op">$</span>age)&lt;-<span class="kw">list</span>(<span class="st">&quot;1917-1942&quot;</span>=<span class="st">&quot;Freshman&quot;</span>,<span class="st">&quot;1942-1967&quot;</span>=<span class="st">&quot;Sophomore&quot;</span>,<span class="st">&quot;1967-1992&quot;</span>=<span class="st">&quot;Junior&quot;</span>,<span class="st">&quot;1992-2017&quot;</span>=<span class="st">&quot;Senior&quot;</span>)
-table1 &lt;-<span class="st"> </span><span class="kw">table</span>(new<span class="op">$</span>teams.division.name,new<span class="op">$</span>age)
-table1 </code></pre></div>
-<pre><code>##               
-##                Freshman Junior Senior Sophomore
-##   Atlantic            2      0      8         6
-##   Central            10      2      2         0
-##   Metropolitan        4      4      2         6
-##   Pacific             6      2      0         8</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new<span class="op">$</span>age &lt;-<span class="st"> </span><span class="kw">as.factor</span>(new<span class="op">$</span>age)
+<span class="kw">levels</span>(new<span class="op">$</span>age)&lt;-<span class="kw">list</span>(<span class="st">&quot;1917-1942&quot;</span>=<span class="st">&quot;Freshman&quot;</span>,<span class="st">&quot;1942-1967&quot;</span>=<span class="st">&quot;Sophomore&quot;</span>,<span class="st">&quot;1967-1992&quot;</span>=<span class="st">&quot;Junior&quot;</span>,<span class="st">&quot;1992-2017&quot;</span>=<span class="st">&quot;Senior&quot;</span>)
+table1 &lt;-<span class="st"> </span><span class="kw">table</span>(new<span class="op">$</span>teams.division.name,new<span class="op">$</span>age) 
+<span class="kw">kable</span>(table1) </code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">1917-1942</th>
+<th align="right">1942-1967</th>
+<th align="right">1967-1992</th>
+<th align="right">1992-2017</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Atlantic</td>
+<td align="right">2</td>
+<td align="right">6</td>
+<td align="right">0</td>
+<td align="right">8</td>
+</tr>
+<tr class="even">
+<td align="left">Central</td>
+<td align="right">10</td>
+<td align="right">0</td>
+<td align="right">2</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">Metropolitan</td>
+<td align="right">4</td>
+<td align="right">6</td>
+<td align="right">4</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">Pacific</td>
+<td align="right">6</td>
+<td align="right">8</td>
+<td align="right">2</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">type2 &lt;-<span class="st"> </span>new <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(data.gameTypeId<span class="op">==</span><span class="dv">2</span>)
 type3 &lt;-<span class="st"> </span>new <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(data.gameTypeId<span class="op">==</span><span class="dv">3</span>)
 histo1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data=</span>type2,<span class="kw">aes</span>(<span class="dt">x=</span>data.penaltyMinutes))

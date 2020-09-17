@@ -322,6 +322,7 @@ division <- statsAPI("expand=team.roster")%>% select(teams.id, teams.division.na
 new <- left_join(teamtotal,division, by="data.teamId") %>% mutate(winrate=data.wins/data.gamesPlayed, winlossrate=data.wins/data.losses, overtimelossrate= data.overtimeLosses/data.losses, goalpergame=data.goalsFor/data.gamesPlayed)
 
 for (i in 1: nrow(new)){
+  
   if (new$data.firstSeasonId[i]/10000<1943){
     new$age[i]<- "Senior"
   }
@@ -338,17 +339,18 @@ for (i in 1: nrow(new)){
 ```
 
 ``` r
+new$age <- as.factor(new$age)
 levels(new$age)<-list("1917-1942"="Freshman","1942-1967"="Sophomore","1967-1992"="Junior","1992-2017"="Senior")
-table1 <- table(new$teams.division.name,new$age)
-table1 
+table1 <- table(new$teams.division.name,new$age) 
+kable(table1) 
 ```
 
-    ##               
-    ##                Freshman Junior Senior Sophomore
-    ##   Atlantic            2      0      8         6
-    ##   Central            10      2      2         0
-    ##   Metropolitan        4      4      2         6
-    ##   Pacific             6      2      0         8
+|              |  1917-1942|  1942-1967|  1967-1992|  1992-2017|
+|:-------------|----------:|----------:|----------:|----------:|
+| Atlantic     |          2|          6|          0|          8|
+| Central      |         10|          0|          2|          2|
+| Metropolitan |          4|          6|          4|          2|
+| Pacific      |          6|          8|          2|          0|
 
 ``` r
 type2 <- new %>% filter(data.gameTypeId==2)
