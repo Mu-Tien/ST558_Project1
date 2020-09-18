@@ -30,7 +30,6 @@ Require Package
 ===============
 
 ``` r
-#install.packages("qwraps2")
 library(rmarkdown)
 library(dplyr)
 library(tidyverse)
@@ -159,7 +158,7 @@ idOption <- c(rep("None",2),rep("franchiseID or teamName without location",3),re
 
 seasonOption <- c(rep("No",10),"Yes", "No","No")
 
-kable(cbind(endpoints,idOption,seasonOption), format = "html")
+kable(cbind(endpoints,idOption,seasonOption), format = "html") 
 ```
 
 <table>
@@ -323,7 +322,7 @@ No
 </tbody>
 </table>
 ``` r
-kable(base, caption = "ID table for teams", format = "html")
+kable(base, caption = "ID table for teams", format = "html") 
 ```
 
 <table>
@@ -850,7 +849,7 @@ levels(new$age)<-list("1917-1942"="Senior","1942-1967"="Junior","1967-1992"="Sop
 #show the table
 datafortable <- new %>% filter(data.gameTypeId==2)
 table1 <- table(datafortable$age, datafortable$teams.division.name) 
-kable(table1,caption = " Division and Team established year information", format = "html") 
+kable(table1,caption = " Division and Team established year information", format = "html")
 ```
 
 <table>
@@ -2361,5 +2360,3 @@ The End
 =======
 
 Thank you for reading my Prooject.
-
-render("Project1.Rmd", output\_format ="github\_document", output\_file=I("README.md"))
