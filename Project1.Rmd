@@ -137,8 +137,8 @@ idOption <- c(rep("None",2),rep("franchiseID or teamName without location",3),re
 
 seasonOption <- c(rep("No",10),"Yes", "No","No")
 
-kable(cbind(endpoints,idOption,seasonOption))
-kable(base, caption = "ID table for teams")
+kable(cbind(endpoints,idOption,seasonOption), format = "html")
+kable(base, caption = "ID table for teams", format = "html")
 ```
 
 
@@ -202,7 +202,7 @@ levels(new$age)<-list("1917-1942"="Senior","1942-1967"="Junior","1967-1992"="Sop
 #show the table
 datafortable <- new %>% filter(data.gameTypeId==2)
 table1 <- table(datafortable$age, datafortable$teams.division.name) 
-kable(table1,caption = " Division and Team established year information") 
+kable(table1,caption = " Division and Team established year information", format = "html") 
 
 ```
 In this table, we can notice that Atlantic has older team distribution when Centrl and Pacific have more younger team
@@ -216,7 +216,7 @@ calculate <- function(x,...){
   data <- new %>% filter(data.gameTypeId == x)%>% select(winrate,winlossrate,overtimelossrate,goalpergame)
   if (x==2) type <- "regular season" else type <- "play off season"
 
-kable(apply(data,2, summary), digit = 4,caption = paste0("Summary among all active teams during ", type))
+kable(apply(data,2, summary), digit = 4,caption = paste0("Summary among all active teams during ", type), format = "html")
 }
 calculate(2)
 calculate(3)
@@ -228,7 +228,7 @@ In this two table we can see that the  win rate and goal per game have no huge d
 #make a summary with grouping data by division
 catesummary <- function(x,...){
   datacatesumm <- new %>% filter(data.gameTypeId == 2)%>% filter(teams.division.name == x) %>% select(data.goalsAgainst,data.goalsFor, data.points, data.pointPctg, data.wins)
-    kable(apply(datacatesumm,2, summary), caption = paste("Summary of division", x), digit = 4, col.names = c("Goal Against", "Goals For", "Points", "Point Percentage", " Wins"))
+    kable(apply(datacatesumm,2, summary), format = "html", caption = paste("Summary of division", x), digit = 4, col.names = c("Goal Against", "Goals For", "Points", "Point Percentage", " Wins"))
 }
 catesummary("Metropolitan")
 catesummary("Atlantic")
@@ -308,8 +308,8 @@ rs <- filter(fourteams, data.gameTypeId==2) %>% select(-data.gameTypeId)
 pos <- filter(fourteams, data.gameTypeId==3) %>% select(-data.gameTypeId)
 
 #print it out
-kable(rs, caption = "Data summary of selected team during regular season", col.names = c("Team", "Game Played", "Win Rate", "Win on Road Rate", "Loss at Home Rate"))
-kable(pos, caption = "Data summary of selected team during play off season", col.names = c("Team", "Game Played", "Win Rate", "Win on Road Rate", "Loss at Home Rate"))
+kable(rs, format = "html", caption = "Data summary of selected team during regular season", col.names = c("Team", "Game Played", "Win Rate", "Win on Road Rate", "Loss at Home Rate"))
+kable(pos, format = "html", caption = "Data summary of selected team during play off season", col.names = c("Team", "Game Played", "Win Rate", "Win on Road Rate", "Loss at Home Rate"))
 
 ```
 
@@ -319,8 +319,8 @@ These table show the data directly, we can notice that **Vegas Golden Knights** 
 ```{r skater position distribution table}
 #showing skater position distribution of selected between non-active player and avctive player
 table2 <- table(skaterrecord$data.positionCode, skaterrecord$data.franchiseName, skaterrecord$data.activePlayer) 
-kable(table2[ , ,1],caption = " Position distribution of skater for non-active player")
-kable(table2[ , ,2],caption = " Position distribution of skater for active player")
+kable(table2[ , ,1], format = "html",caption = " Position distribution of skater for non-active player")
+kable(table2[ , ,2], format = "html",caption = " Position distribution of skater for active player")
 ```
 
 The distribution of the position is similar among each team about 15 for position c and D and about 10 for L and R. **Vegaas golden Knights** has less amount in each position maybe because they are a 3-year-old team.  

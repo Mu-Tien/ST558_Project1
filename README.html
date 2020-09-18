@@ -177,279 +177,622 @@ idOption &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw
 
 seasonOption &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;No&quot;</span>,<span class="dv">10</span>),<span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;No&quot;</span>)
 
-<span class="kw">kable</span>(<span class="kw">cbind</span>(endpoints,idOption,seasonOption))</code></pre></div>
+<span class="kw">kable</span>(<span class="kw">cbind</span>(endpoints,idOption,seasonOption), <span class="dt">format =</span> <span class="st">&quot;html&quot;</span>)</code></pre></div>
 <table>
 <thead>
-<tr class="header">
-<th align="left">endpoints</th>
-<th align="left">idOption</th>
-<th align="left">seasonOption</th>
+<tr>
+<th style="text-align:left;">
+endpoints
+</th>
+<th style="text-align:left;">
+idOption
+</th>
+<th style="text-align:left;">
+seasonOption
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">franchise</td>
-<td align="left">None</td>
-<td align="left">No</td>
+<tr>
+<td style="text-align:left;">
+franchise
+</td>
+<td style="text-align:left;">
+None
+</td>
+<td style="text-align:left;">
+No
+</td>
 </tr>
-<tr class="even">
-<td align="left">franchise-team-totals</td>
-<td align="left">None</td>
-<td align="left">No</td>
+<tr>
+<td style="text-align:left;">
+franchise-team-totals
+</td>
+<td style="text-align:left;">
+None
+</td>
+<td style="text-align:left;">
+No
+</td>
 </tr>
-<tr class="odd">
-<td align="left">franchise-season-records</td>
-<td align="left">franchiseID or teamName without location</td>
-<td align="left">No</td>
+<tr>
+<td style="text-align:left;">
+franchise-season-records
+</td>
+<td style="text-align:left;">
+franchiseID or teamName without location
+</td>
+<td style="text-align:left;">
+No
+</td>
 </tr>
-<tr class="even">
-<td align="left">franchise-goalie-records</td>
-<td align="left">franchiseID or teamName without location</td>
-<td align="left">No</td>
+<tr>
+<td style="text-align:left;">
+franchise-goalie-records
+</td>
+<td style="text-align:left;">
+franchiseID or teamName without location
+</td>
+<td style="text-align:left;">
+No
+</td>
 </tr>
-<tr class="odd">
-<td align="left">franchise-skater-records</td>
-<td align="left">franchiseID or teamName without location</td>
-<td align="left">No</td>
+<tr>
+<td style="text-align:left;">
+franchise-skater-records
+</td>
+<td style="text-align:left;">
+franchiseID or teamName without location
+</td>
+<td style="text-align:left;">
+No
+</td>
 </tr>
-<tr class="even">
-<td align="left">expand=team.roster</td>
-<td align="left">teamID or teamName without location</td>
-<td align="left">No</td>
+<tr>
+<td style="text-align:left;">
+expand=team.roster
+</td>
+<td style="text-align:left;">
+teamID or teamName without location
+</td>
+<td style="text-align:left;">
+No
+</td>
 </tr>
-<tr class="odd">
-<td align="left">expand=person.names</td>
-<td align="left">teamID or teamName without location</td>
-<td align="left">No</td>
+<tr>
+<td style="text-align:left;">
+expand=person.names
+</td>
+<td style="text-align:left;">
+teamID or teamName without location
+</td>
+<td style="text-align:left;">
+No
+</td>
 </tr>
-<tr class="even">
-<td align="left">expand=team.schedule.next</td>
-<td align="left">teamID or teamName without location</td>
-<td align="left">No</td>
+<tr>
+<td style="text-align:left;">
+expand=team.schedule.next
+</td>
+<td style="text-align:left;">
+teamID or teamName without location
+</td>
+<td style="text-align:left;">
+No
+</td>
 </tr>
-<tr class="odd">
-<td align="left">expand=team.schedule.previous</td>
-<td align="left">teamID or teamName without location</td>
-<td align="left">No</td>
+<tr>
+<td style="text-align:left;">
+expand=team.schedule.previous
+</td>
+<td style="text-align:left;">
+teamID or teamName without location
+</td>
+<td style="text-align:left;">
+No
+</td>
 </tr>
-<tr class="even">
-<td align="left">expand=team.stats</td>
-<td align="left">teamID or teamName without location</td>
-<td align="left">No</td>
+<tr>
+<td style="text-align:left;">
+expand=team.stats
+</td>
+<td style="text-align:left;">
+teamID or teamName without location
+</td>
+<td style="text-align:left;">
+No
+</td>
 </tr>
-<tr class="odd">
-<td align="left">expand=team.roster&amp;season</td>
-<td align="left">teamID or teamName without location</td>
-<td align="left">Yes</td>
+<tr>
+<td style="text-align:left;">
+expand=team.roster&amp;season
+</td>
+<td style="text-align:left;">
+teamID or teamName without location
+</td>
+<td style="text-align:left;">
+Yes
+</td>
 </tr>
-<tr class="even">
-<td align="left">teamId</td>
-<td align="left">teamID or teamName without location</td>
-<td align="left">No</td>
+<tr>
+<td style="text-align:left;">
+teamId
+</td>
+<td style="text-align:left;">
+teamID or teamName without location
+</td>
+<td style="text-align:left;">
+No
+</td>
 </tr>
-<tr class="odd">
-<td align="left">stats=statsSingleSeasonPlayoffs</td>
-<td align="left">teamID or teamName without location</td>
-<td align="left">No</td>
+<tr>
+<td style="text-align:left;">
+stats=statsSingleSeasonPlayoffs
+</td>
+<td style="text-align:left;">
+teamID or teamName without location
+</td>
+<td style="text-align:left;">
+No
+</td>
 </tr>
 </tbody>
 </table>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">kable</span>(base, <span class="dt">caption =</span> <span class="st">&quot;ID table for teams&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">kable</span>(base, <span class="dt">caption =</span> <span class="st">&quot;ID table for teams&quot;</span>, <span class="dt">format =</span> <span class="st">&quot;html&quot;</span>)</code></pre></div>
 <table>
+<caption>
+ID table for teams
+</caption>
 <thead>
-<tr class="header">
-<th align="left">teams.franchise.teamName</th>
-<th align="right">teams.franchiseId</th>
-<th align="left">teams.teamName</th>
-<th align="right">teams.id</th>
+<tr>
+<th style="text-align:left;">
+teams.franchise.teamName
+</th>
+<th style="text-align:right;">
+teams.franchiseId
+</th>
+<th style="text-align:left;">
+teams.teamName
+</th>
+<th style="text-align:right;">
+teams.id
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">Devils</td>
-<td align="right">23</td>
-<td align="left">Devils</td>
-<td align="right">1</td>
+<tr>
+<td style="text-align:left;">
+Devils
+</td>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:left;">
+Devils
+</td>
+<td style="text-align:right;">
+1
+</td>
 </tr>
-<tr class="even">
-<td align="left">Islanders</td>
-<td align="right">22</td>
-<td align="left">Islanders</td>
-<td align="right">2</td>
+<tr>
+<td style="text-align:left;">
+Islanders
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:left;">
+Islanders
+</td>
+<td style="text-align:right;">
+2
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Rangers</td>
-<td align="right">10</td>
-<td align="left">Rangers</td>
-<td align="right">3</td>
+<tr>
+<td style="text-align:left;">
+Rangers
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:left;">
+Rangers
+</td>
+<td style="text-align:right;">
+3
+</td>
 </tr>
-<tr class="even">
-<td align="left">Flyers</td>
-<td align="right">16</td>
-<td align="left">Flyers</td>
-<td align="right">4</td>
+<tr>
+<td style="text-align:left;">
+Flyers
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:left;">
+Flyers
+</td>
+<td style="text-align:right;">
+4
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Penguins</td>
-<td align="right">17</td>
-<td align="left">Penguins</td>
-<td align="right">5</td>
+<tr>
+<td style="text-align:left;">
+Penguins
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:left;">
+Penguins
+</td>
+<td style="text-align:right;">
+5
+</td>
 </tr>
-<tr class="even">
-<td align="left">Bruins</td>
-<td align="right">6</td>
-<td align="left">Bruins</td>
-<td align="right">6</td>
+<tr>
+<td style="text-align:left;">
+Bruins
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+Bruins
+</td>
+<td style="text-align:right;">
+6
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Sabres</td>
-<td align="right">19</td>
-<td align="left">Sabres</td>
-<td align="right">7</td>
+<tr>
+<td style="text-align:left;">
+Sabres
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:left;">
+Sabres
+</td>
+<td style="text-align:right;">
+7
+</td>
 </tr>
-<tr class="even">
-<td align="left">Canadiens</td>
-<td align="right">1</td>
-<td align="left">Canadiens</td>
-<td align="right">8</td>
+<tr>
+<td style="text-align:left;">
+Canadiens
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Canadiens
+</td>
+<td style="text-align:right;">
+8
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Senators</td>
-<td align="right">30</td>
-<td align="left">Senators</td>
-<td align="right">9</td>
+<tr>
+<td style="text-align:left;">
+Senators
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+Senators
+</td>
+<td style="text-align:right;">
+9
+</td>
 </tr>
-<tr class="even">
-<td align="left">Maple Leafs</td>
-<td align="right">5</td>
-<td align="left">Maple Leafs</td>
-<td align="right">10</td>
+<tr>
+<td style="text-align:left;">
+Maple Leafs
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+Maple Leafs
+</td>
+<td style="text-align:right;">
+10
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Hurricanes</td>
-<td align="right">26</td>
-<td align="left">Hurricanes</td>
-<td align="right">12</td>
+<tr>
+<td style="text-align:left;">
+Hurricanes
+</td>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:left;">
+Hurricanes
+</td>
+<td style="text-align:right;">
+12
+</td>
 </tr>
-<tr class="even">
-<td align="left">Panthers</td>
-<td align="right">33</td>
-<td align="left">Panthers</td>
-<td align="right">13</td>
+<tr>
+<td style="text-align:left;">
+Panthers
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:left;">
+Panthers
+</td>
+<td style="text-align:right;">
+13
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Lightning</td>
-<td align="right">31</td>
-<td align="left">Lightning</td>
-<td align="right">14</td>
+<tr>
+<td style="text-align:left;">
+Lightning
+</td>
+<td style="text-align:right;">
+31
+</td>
+<td style="text-align:left;">
+Lightning
+</td>
+<td style="text-align:right;">
+14
+</td>
 </tr>
-<tr class="even">
-<td align="left">Capitals</td>
-<td align="right">24</td>
-<td align="left">Capitals</td>
-<td align="right">15</td>
+<tr>
+<td style="text-align:left;">
+Capitals
+</td>
+<td style="text-align:right;">
+24
+</td>
+<td style="text-align:left;">
+Capitals
+</td>
+<td style="text-align:right;">
+15
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Blackhawks</td>
-<td align="right">11</td>
-<td align="left">Blackhawks</td>
-<td align="right">16</td>
+<tr>
+<td style="text-align:left;">
+Blackhawks
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:left;">
+Blackhawks
+</td>
+<td style="text-align:right;">
+16
+</td>
 </tr>
-<tr class="even">
-<td align="left">Red Wings</td>
-<td align="right">12</td>
-<td align="left">Red Wings</td>
-<td align="right">17</td>
+<tr>
+<td style="text-align:left;">
+Red Wings
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:left;">
+Red Wings
+</td>
+<td style="text-align:right;">
+17
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Predators</td>
-<td align="right">34</td>
-<td align="left">Predators</td>
-<td align="right">18</td>
+<tr>
+<td style="text-align:left;">
+Predators
+</td>
+<td style="text-align:right;">
+34
+</td>
+<td style="text-align:left;">
+Predators
+</td>
+<td style="text-align:right;">
+18
+</td>
 </tr>
-<tr class="even">
-<td align="left">Blues</td>
-<td align="right">18</td>
-<td align="left">Blues</td>
-<td align="right">19</td>
+<tr>
+<td style="text-align:left;">
+Blues
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:left;">
+Blues
+</td>
+<td style="text-align:right;">
+19
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Flames</td>
-<td align="right">21</td>
-<td align="left">Flames</td>
-<td align="right">20</td>
+<tr>
+<td style="text-align:left;">
+Flames
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:left;">
+Flames
+</td>
+<td style="text-align:right;">
+20
+</td>
 </tr>
-<tr class="even">
-<td align="left">Avalanche</td>
-<td align="right">27</td>
-<td align="left">Avalanche</td>
-<td align="right">21</td>
+<tr>
+<td style="text-align:left;">
+Avalanche
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:left;">
+Avalanche
+</td>
+<td style="text-align:right;">
+21
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Oilers</td>
-<td align="right">25</td>
-<td align="left">Oilers</td>
-<td align="right">22</td>
+<tr>
+<td style="text-align:left;">
+Oilers
+</td>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:left;">
+Oilers
+</td>
+<td style="text-align:right;">
+22
+</td>
 </tr>
-<tr class="even">
-<td align="left">Canucks</td>
-<td align="right">20</td>
-<td align="left">Canucks</td>
-<td align="right">23</td>
+<tr>
+<td style="text-align:left;">
+Canucks
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:left;">
+Canucks
+</td>
+<td style="text-align:right;">
+23
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Ducks</td>
-<td align="right">32</td>
-<td align="left">Ducks</td>
-<td align="right">24</td>
+<tr>
+<td style="text-align:left;">
+Ducks
+</td>
+<td style="text-align:right;">
+32
+</td>
+<td style="text-align:left;">
+Ducks
+</td>
+<td style="text-align:right;">
+24
+</td>
 </tr>
-<tr class="even">
-<td align="left">Stars</td>
-<td align="right">15</td>
-<td align="left">Stars</td>
-<td align="right">25</td>
+<tr>
+<td style="text-align:left;">
+Stars
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:left;">
+Stars
+</td>
+<td style="text-align:right;">
+25
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Kings</td>
-<td align="right">14</td>
-<td align="left">Kings</td>
-<td align="right">26</td>
+<tr>
+<td style="text-align:left;">
+Kings
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Kings
+</td>
+<td style="text-align:right;">
+26
+</td>
 </tr>
-<tr class="even">
-<td align="left">Sharks</td>
-<td align="right">29</td>
-<td align="left">Sharks</td>
-<td align="right">28</td>
+<tr>
+<td style="text-align:left;">
+Sharks
+</td>
+<td style="text-align:right;">
+29
+</td>
+<td style="text-align:left;">
+Sharks
+</td>
+<td style="text-align:right;">
+28
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Blue Jackets</td>
-<td align="right">36</td>
-<td align="left">Blue Jackets</td>
-<td align="right">29</td>
+<tr>
+<td style="text-align:left;">
+Blue Jackets
+</td>
+<td style="text-align:right;">
+36
+</td>
+<td style="text-align:left;">
+Blue Jackets
+</td>
+<td style="text-align:right;">
+29
+</td>
 </tr>
-<tr class="even">
-<td align="left">Wild</td>
-<td align="right">37</td>
-<td align="left">Wild</td>
-<td align="right">30</td>
+<tr>
+<td style="text-align:left;">
+Wild
+</td>
+<td style="text-align:right;">
+37
+</td>
+<td style="text-align:left;">
+Wild
+</td>
+<td style="text-align:right;">
+30
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Jets</td>
-<td align="right">35</td>
-<td align="left">Jets</td>
-<td align="right">52</td>
+<tr>
+<td style="text-align:left;">
+Jets
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:left;">
+Jets
+</td>
+<td style="text-align:right;">
+52
+</td>
 </tr>
-<tr class="even">
-<td align="left">Coyotes</td>
-<td align="right">28</td>
-<td align="left">Coyotes</td>
-<td align="right">53</td>
+<tr>
+<td style="text-align:left;">
+Coyotes
+</td>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:left;">
+Coyotes
+</td>
+<td style="text-align:right;">
+53
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Golden Knights</td>
-<td align="right">38</td>
-<td align="left">Golden Knights</td>
-<td align="right">54</td>
+<tr>
+<td style="text-align:left;">
+Golden Knights
+</td>
+<td style="text-align:right;">
+38
+</td>
+<td style="text-align:left;">
+Golden Knights
+</td>
+<td style="text-align:right;">
+54
+</td>
 </tr>
 </tbody>
 </table>
@@ -504,45 +847,97 @@ new<span class="op">$</span>age &lt;-<span class="st"> </span><span class="kw">a
 <span class="co">#show the table</span>
 datafortable &lt;-<span class="st"> </span>new <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(data.gameTypeId<span class="op">==</span><span class="dv">2</span>)
 table1 &lt;-<span class="st"> </span><span class="kw">table</span>(datafortable<span class="op">$</span>age, datafortable<span class="op">$</span>teams.division.name) 
-<span class="kw">kable</span>(table1,<span class="dt">caption =</span> <span class="st">&quot; Division and Team established year information&quot;</span>) </code></pre></div>
+<span class="kw">kable</span>(table1,<span class="dt">caption =</span> <span class="st">&quot; Division and Team established year information&quot;</span>, <span class="dt">format =</span> <span class="st">&quot;html&quot;</span>) </code></pre></div>
 <table>
+<caption>
+Division and Team established year information
+</caption>
 <thead>
-<tr class="header">
-<th align="left"></th>
-<th align="right">Atlantic</th>
-<th align="right">Central</th>
-<th align="right">Metropolitan</th>
-<th align="right">Pacific</th>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Atlantic
+</th>
+<th style="text-align:right;">
+Central
+</th>
+<th style="text-align:right;">
+Metropolitan
+</th>
+<th style="text-align:right;">
+Pacific
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">1917-1942</td>
-<td align="right">4</td>
-<td align="right">1</td>
-<td align="right">1</td>
-<td align="right">0</td>
+<tr>
+<td style="text-align:left;">
+1917-1942
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
 </tr>
-<tr class="even">
-<td align="left">1942-1967</td>
-<td align="right">0</td>
-<td align="right">1</td>
-<td align="right">2</td>
-<td align="right">1</td>
+<tr>
+<td style="text-align:left;">
+1942-1967
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
 </tr>
-<tr class="odd">
-<td align="left">1967-1992</td>
-<td align="right">3</td>
-<td align="right">0</td>
-<td align="right">3</td>
-<td align="right">4</td>
+<tr>
+<td style="text-align:left;">
+1967-1992
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+4
+</td>
 </tr>
-<tr class="even">
-<td align="left">1992-2017</td>
-<td align="right">1</td>
-<td align="right">5</td>
-<td align="right">2</td>
-<td align="right">3</td>
+<tr>
+<td style="text-align:left;">
+1992-2017
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+3
+</td>
 </tr>
 </tbody>
 </table>
@@ -555,117 +950,261 @@ calculate &lt;-<span class="st"> </span><span class="cf">function</span>(x,...){
   data &lt;-<span class="st"> </span>new <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(data.gameTypeId <span class="op">==</span><span class="st"> </span>x)<span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(winrate,winlossrate,overtimelossrate,goalpergame)
   <span class="cf">if</span> (x<span class="op">==</span><span class="dv">2</span>) type &lt;-<span class="st"> &quot;regular season&quot;</span> <span class="cf">else</span> type &lt;-<span class="st"> &quot;play off season&quot;</span>
 
-<span class="kw">kable</span>(<span class="kw">apply</span>(data,<span class="dv">2</span>, summary), <span class="dt">digit =</span> <span class="dv">4</span>,<span class="dt">caption =</span> <span class="kw">paste0</span>(<span class="st">&quot;Summary among all active teams during &quot;</span>, type))
+<span class="kw">kable</span>(<span class="kw">apply</span>(data,<span class="dv">2</span>, summary), <span class="dt">digit =</span> <span class="dv">4</span>,<span class="dt">caption =</span> <span class="kw">paste0</span>(<span class="st">&quot;Summary among all active teams during &quot;</span>, type), <span class="dt">format =</span> <span class="st">&quot;html&quot;</span>)
 }
 <span class="kw">calculate</span>(<span class="dv">2</span>)</code></pre></div>
 <table>
+<caption>
+Summary among all active teams during regular season
+</caption>
 <thead>
-<tr class="header">
-<th align="left"></th>
-<th align="right">winrate</th>
-<th align="right">winlossrate</th>
-<th align="right">overtimelossrate</th>
-<th align="right">goalpergame</th>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+winrate
+</th>
+<th style="text-align:right;">
+winlossrate
+</th>
+<th style="text-align:right;">
+overtimelossrate
+</th>
+<th style="text-align:right;">
+goalpergame
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">Min.</td>
-<td align="right">0.3958</td>
-<td align="right">0.8051</td>
-<td align="right">0.0546</td>
-<td align="right">2.4833</td>
+<tr>
+<td style="text-align:left;">
+Min.
+</td>
+<td style="text-align:right;">
+0.3958
+</td>
+<td style="text-align:right;">
+0.8051
+</td>
+<td style="text-align:right;">
+0.0546
+</td>
+<td style="text-align:right;">
+2.4833
+</td>
 </tr>
-<tr class="even">
-<td align="left">1st Qu.</td>
-<td align="right">0.4413</td>
-<td align="right">1.0471</td>
-<td align="right">0.0890</td>
-<td align="right">2.8356</td>
+<tr>
+<td style="text-align:left;">
+1st Qu.
+</td>
+<td style="text-align:right;">
+0.4413
+</td>
+<td style="text-align:right;">
+1.0471
+</td>
+<td style="text-align:right;">
+0.0890
+</td>
+<td style="text-align:right;">
+2.8356
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Median</td>
-<td align="right">0.4605</td>
-<td align="right">1.1643</td>
-<td align="right">0.1252</td>
-<td align="right">3.0541</td>
+<tr>
+<td style="text-align:left;">
+Median
+</td>
+<td style="text-align:right;">
+0.4605
+</td>
+<td style="text-align:right;">
+1.1643
+</td>
+<td style="text-align:right;">
+0.1252
+</td>
+<td style="text-align:right;">
+3.0541
+</td>
 </tr>
-<tr class="even">
-<td align="left">Mean</td>
-<td align="right">0.4639</td>
-<td align="right">1.1710</td>
-<td align="right">0.1508</td>
-<td align="right">2.9862</td>
+<tr>
+<td style="text-align:left;">
+Mean
+</td>
+<td style="text-align:right;">
+0.4639
+</td>
+<td style="text-align:right;">
+1.1710
+</td>
+<td style="text-align:right;">
+0.1508
+</td>
+<td style="text-align:right;">
+2.9862
+</td>
 </tr>
-<tr class="odd">
-<td align="left">3rd Qu.</td>
-<td align="right">0.4837</td>
-<td align="right">1.2694</td>
-<td align="right">0.2157</td>
-<td align="right">3.1771</td>
+<tr>
+<td style="text-align:left;">
+3rd Qu.
+</td>
+<td style="text-align:right;">
+0.4837
+</td>
+<td style="text-align:right;">
+1.2694
+</td>
+<td style="text-align:right;">
+0.2157
+</td>
+<td style="text-align:right;">
+3.1771
+</td>
 </tr>
-<tr class="even">
-<td align="left">Max.</td>
-<td align="right">0.5660</td>
-<td align="right">1.6625</td>
-<td align="right">0.2750</td>
-<td align="right">3.3322</td>
+<tr>
+<td style="text-align:left;">
+Max.
+</td>
+<td style="text-align:right;">
+0.5660
+</td>
+<td style="text-align:right;">
+1.6625
+</td>
+<td style="text-align:right;">
+0.2750
+</td>
+<td style="text-align:right;">
+3.3322
+</td>
 </tr>
 </tbody>
 </table>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">calculate</span>(<span class="dv">3</span>)</code></pre></div>
 <table>
+<caption>
+Summary among all active teams during play off season
+</caption>
 <thead>
-<tr class="header">
-<th align="left"></th>
-<th align="right">winrate</th>
-<th align="right">winlossrate</th>
-<th align="right">overtimelossrate</th>
-<th align="right">goalpergame</th>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+winrate
+</th>
+<th style="text-align:right;">
+winlossrate
+</th>
+<th style="text-align:right;">
+overtimelossrate
+</th>
+<th style="text-align:right;">
+goalpergame
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">Min.</td>
-<td align="right">0.3506</td>
-<td align="right">0.5400</td>
-<td align="right">0.0000</td>
-<td align="right">2.2597</td>
+<tr>
+<td style="text-align:left;">
+Min.
+</td>
+<td style="text-align:right;">
+0.3506
+</td>
+<td style="text-align:right;">
+0.5400
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+2.2597
+</td>
 </tr>
-<tr class="even">
-<td align="left">1st Qu.</td>
-<td align="right">0.4536</td>
-<td align="right">0.8321</td>
-<td align="right">0.0000</td>
-<td align="right">2.5917</td>
+<tr>
+<td style="text-align:left;">
+1st Qu.
+</td>
+<td style="text-align:right;">
+0.4536
+</td>
+<td style="text-align:right;">
+0.8321
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+2.5917
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Median</td>
-<td align="right">0.4891</td>
-<td align="right">0.9745</td>
-<td align="right">0.0000</td>
-<td align="right">2.7400</td>
+<tr>
+<td style="text-align:left;">
+Median
+</td>
+<td style="text-align:right;">
+0.4891
+</td>
+<td style="text-align:right;">
+0.9745
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+2.7400
+</td>
 </tr>
-<tr class="even">
-<td align="left">Mean</td>
-<td align="right">0.4906</td>
-<td align="right">0.9964</td>
-<td align="right">0.0007</td>
-<td align="right">2.7758</td>
+<tr>
+<td style="text-align:left;">
+Mean
+</td>
+<td style="text-align:right;">
+0.4906
+</td>
+<td style="text-align:right;">
+0.9964
+</td>
+<td style="text-align:right;">
+0.0007
+</td>
+<td style="text-align:right;">
+2.7758
+</td>
 </tr>
-<tr class="odd">
-<td align="left">3rd Qu.</td>
-<td align="right">0.5354</td>
-<td align="right">1.1523</td>
-<td align="right">0.0000</td>
-<td align="right">2.9395</td>
+<tr>
+<td style="text-align:left;">
+3rd Qu.
+</td>
+<td style="text-align:right;">
+0.5354
+</td>
+<td style="text-align:right;">
+1.1523
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+2.9395
+</td>
 </tr>
-<tr class="even">
-<td align="left">Max.</td>
-<td align="right">0.5970</td>
-<td align="right">1.4815</td>
-<td align="right">0.0111</td>
-<td align="right">3.6791</td>
+<tr>
+<td style="text-align:left;">
+Max.
+</td>
+<td style="text-align:right;">
+0.5970
+</td>
+<td style="text-align:right;">
+1.4815
+</td>
+<td style="text-align:right;">
+0.0111
+</td>
+<td style="text-align:right;">
+3.6791
+</td>
 </tr>
 </tbody>
 </table>
@@ -673,257 +1212,601 @@ calculate &lt;-<span class="st"> </span><span class="cf">function</span>(x,...){
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#make a summary with grouping data by division</span>
 catesummary &lt;-<span class="st"> </span><span class="cf">function</span>(x,...){
   datacatesumm &lt;-<span class="st"> </span>new <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(data.gameTypeId <span class="op">==</span><span class="st"> </span><span class="dv">2</span>)<span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(teams.division.name <span class="op">==</span><span class="st"> </span>x) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(data.goalsAgainst,data.goalsFor, data.points, data.pointPctg, data.wins)
-    <span class="kw">kable</span>(<span class="kw">apply</span>(datacatesumm,<span class="dv">2</span>, summary), <span class="dt">caption =</span> <span class="kw">paste</span>(<span class="st">&quot;Summary of division&quot;</span>, x), <span class="dt">digit =</span> <span class="dv">4</span>, <span class="dt">col.names =</span> <span class="kw">c</span>(<span class="st">&quot;Goal Against&quot;</span>, <span class="st">&quot;Goals For&quot;</span>, <span class="st">&quot;Points&quot;</span>, <span class="st">&quot;Point Percentage&quot;</span>, <span class="st">&quot; Wins&quot;</span>))
+    <span class="kw">kable</span>(<span class="kw">apply</span>(datacatesumm,<span class="dv">2</span>, summary), <span class="dt">format =</span> <span class="st">&quot;html&quot;</span>, <span class="dt">caption =</span> <span class="kw">paste</span>(<span class="st">&quot;Summary of division&quot;</span>, x), <span class="dt">digit =</span> <span class="dv">4</span>, <span class="dt">col.names =</span> <span class="kw">c</span>(<span class="st">&quot;Goal Against&quot;</span>, <span class="st">&quot;Goals For&quot;</span>, <span class="st">&quot;Points&quot;</span>, <span class="st">&quot;Point Percentage&quot;</span>, <span class="st">&quot; Wins&quot;</span>))
 }
 <span class="kw">catesummary</span>(<span class="st">&quot;Metropolitan&quot;</span>)</code></pre></div>
 <table>
+<caption>
+Summary of division Metropolitan
+</caption>
 <thead>
-<tr class="header">
-<th align="left"></th>
-<th align="right">Goal Against</th>
-<th align="right">Goals For</th>
-<th align="right">Points</th>
-<th align="right">Point Percentage</th>
-<th align="right">Wins</th>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Goal Against
+</th>
+<th style="text-align:right;">
+Goals For
+</th>
+<th style="text-align:right;">
+Points
+</th>
+<th style="text-align:right;">
+Point Percentage
+</th>
+<th style="text-align:right;">
+Wins
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">Min.</td>
-<td align="right">4425.00</td>
-<td align="right">3955.00</td>
-<td align="right">1500.00</td>
-<td align="right">0.4960</td>
-<td align="right">660.00</td>
+<tr>
+<td style="text-align:left;">
+Min.
+</td>
+<td style="text-align:right;">
+4425.00
+</td>
+<td style="text-align:right;">
+3955.00
+</td>
+<td style="text-align:right;">
+1500.00
+</td>
+<td style="text-align:right;">
+0.4960
+</td>
+<td style="text-align:right;">
+660.00
+</td>
 </tr>
-<tr class="even">
-<td align="left">1st Qu.</td>
-<td align="right">7782.00</td>
-<td align="right">7669.00</td>
-<td align="right">2806.75</td>
-<td align="right">0.5122</td>
-<td align="right">1229.00</td>
+<tr>
+<td style="text-align:left;">
+1st Qu.
+</td>
+<td style="text-align:right;">
+7782.00
+</td>
+<td style="text-align:right;">
+7669.00
+</td>
+<td style="text-align:right;">
+2806.75
+</td>
+<td style="text-align:right;">
+0.5122
+</td>
+<td style="text-align:right;">
+1229.00
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Median</td>
-<td align="right">11584.50</td>
-<td align="right">11607.00</td>
-<td align="right">3803.50</td>
-<td align="right">0.5201</td>
-<td align="right">1660.00</td>
+<tr>
+<td style="text-align:left;">
+Median
+</td>
+<td style="text-align:right;">
+11584.50
+</td>
+<td style="text-align:right;">
+11607.00
+</td>
+<td style="text-align:right;">
+3803.50
+</td>
+<td style="text-align:right;">
+0.5201
+</td>
+<td style="text-align:right;">
+1660.00
+</td>
 </tr>
-<tr class="even">
-<td align="left">Mean</td>
-<td align="right">10889.50</td>
-<td align="right">10952.50</td>
-<td align="right">3717.75</td>
-<td align="right">0.5248</td>
-<td align="right">1615.25</td>
+<tr>
+<td style="text-align:left;">
+Mean
+</td>
+<td style="text-align:right;">
+10889.50
+</td>
+<td style="text-align:right;">
+10952.50
+</td>
+<td style="text-align:right;">
+3717.75
+</td>
+<td style="text-align:right;">
+0.5248
+</td>
+<td style="text-align:right;">
+1615.25
+</td>
 </tr>
-<tr class="odd">
-<td align="left">3rd Qu.</td>
-<td align="right">12513.75</td>
-<td align="right">13564.75</td>
-<td align="right">4382.25</td>
-<td align="right">0.5304</td>
-<td align="right">1913.00</td>
+<tr>
+<td style="text-align:left;">
+3rd Qu.
+</td>
+<td style="text-align:right;">
+12513.75
+</td>
+<td style="text-align:right;">
+13564.75
+</td>
+<td style="text-align:right;">
+4382.25
+</td>
+<td style="text-align:right;">
+0.5304
+</td>
+<td style="text-align:right;">
+1913.00
+</td>
 </tr>
-<tr class="even">
-<td align="left">Max.</td>
-<td align="right">19863.00</td>
-<td align="right">19864.00</td>
-<td align="right">6667.00</td>
-<td align="right">0.5759</td>
-<td align="right">2856.00</td>
+<tr>
+<td style="text-align:left;">
+Max.
+</td>
+<td style="text-align:right;">
+19863.00
+</td>
+<td style="text-align:right;">
+19864.00
+</td>
+<td style="text-align:right;">
+6667.00
+</td>
+<td style="text-align:right;">
+0.5759
+</td>
+<td style="text-align:right;">
+2856.00
+</td>
 </tr>
 </tbody>
 </table>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">catesummary</span>(<span class="st">&quot;Atlantic&quot;</span>)</code></pre></div>
 <table>
+<caption>
+Summary of division Atlantic
+</caption>
 <thead>
-<tr class="header">
-<th align="left"></th>
-<th align="right">Goal Against</th>
-<th align="right">Goals For</th>
-<th align="right">Points</th>
-<th align="right">Point Percentage</th>
-<th align="right">Wins</th>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Goal Against
+</th>
+<th style="text-align:right;">
+Goals For
+</th>
+<th style="text-align:right;">
+Points
+</th>
+<th style="text-align:right;">
+Point Percentage
+</th>
+<th style="text-align:right;">
+Wins
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">Min.</td>
-<td align="right">5969.00</td>
-<td align="right">5476.00</td>
-<td align="right">2049.00</td>
-<td align="right">0.4990</td>
-<td align="right">852.00</td>
+<tr>
+<td style="text-align:left;">
+Min.
+</td>
+<td style="text-align:right;">
+5969.00
+</td>
+<td style="text-align:right;">
+5476.00
+</td>
+<td style="text-align:right;">
+2049.00
+</td>
+<td style="text-align:right;">
+0.4990
+</td>
+<td style="text-align:right;">
+852.00
+</td>
 </tr>
-<tr class="even">
-<td align="left">1st Qu.</td>
-<td align="right">6471.75</td>
-<td align="right">6078.50</td>
-<td align="right">2170.50</td>
-<td align="right">0.5074</td>
-<td align="right">948.75</td>
+<tr>
+<td style="text-align:left;">
+1st Qu.
+</td>
+<td style="text-align:right;">
+6471.75
+</td>
+<td style="text-align:right;">
+6078.50
+</td>
+<td style="text-align:right;">
+2170.50
+</td>
+<td style="text-align:right;">
+0.5074
+</td>
+<td style="text-align:right;">
+948.75
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Median</td>
-<td align="right">14929.50</td>
-<td align="right">15878.00</td>
-<td align="right">5382.50</td>
-<td align="right">0.5228</td>
-<td align="right">2314.00</td>
+<tr>
+<td style="text-align:left;">
+Median
+</td>
+<td style="text-align:right;">
+14929.50
+</td>
+<td style="text-align:right;">
+15878.00
+</td>
+<td style="text-align:right;">
+5382.50
+</td>
+<td style="text-align:right;">
+0.5228
+</td>
+<td style="text-align:right;">
+2314.00
+</td>
 </tr>
-<tr class="even">
-<td align="left">Mean</td>
-<td align="right">13279.12</td>
-<td align="right">13966.12</td>
-<td align="right">4890.75</td>
-<td align="right">0.5304</td>
-<td align="right">2113.25</td>
+<tr>
+<td style="text-align:left;">
+Mean
+</td>
+<td style="text-align:right;">
+13279.12
+</td>
+<td style="text-align:right;">
+13966.12
+</td>
+<td style="text-align:right;">
+4890.75
+</td>
+<td style="text-align:right;">
+0.5304
+</td>
+<td style="text-align:right;">
+2113.25
+</td>
 </tr>
-<tr class="odd">
-<td align="left">3rd Qu.</td>
-<td align="right">18782.75</td>
-<td align="right">20080.75</td>
-<td align="right">6865.25</td>
-<td align="right">0.5429</td>
-<td align="right">2956.00</td>
+<tr>
+<td style="text-align:left;">
+3rd Qu.
+</td>
+<td style="text-align:right;">
+18782.75
+</td>
+<td style="text-align:right;">
+20080.75
+</td>
+<td style="text-align:right;">
+6865.25
+</td>
+<td style="text-align:right;">
+0.5429
+</td>
+<td style="text-align:right;">
+2956.00
+</td>
 </tr>
-<tr class="even">
-<td align="left">Max.</td>
-<td align="right">19805.00</td>
-<td align="right">21632.00</td>
-<td align="right">7899.00</td>
-<td align="right">0.5868</td>
-<td align="right">3449.00</td>
+<tr>
+<td style="text-align:left;">
+Max.
+</td>
+<td style="text-align:right;">
+19805.00
+</td>
+<td style="text-align:right;">
+21632.00
+</td>
+<td style="text-align:right;">
+7899.00
+</td>
+<td style="text-align:right;">
+0.5868
+</td>
+<td style="text-align:right;">
+3449.00
+</td>
 </tr>
 </tbody>
 </table>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">catesummary</span>(<span class="st">&quot;Central&quot;</span>)</code></pre></div>
 <table>
+<caption>
+Summary of division Central
+</caption>
 <thead>
-<tr class="header">
-<th align="left"></th>
-<th align="right">Goal Against</th>
-<th align="right">Goals For</th>
-<th align="right">Points</th>
-<th align="right">Point Percentage</th>
-<th align="right">Wins</th>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Goal Against
+</th>
+<th style="text-align:right;">
+Goals For
+</th>
+<th style="text-align:right;">
+Points
+</th>
+<th style="text-align:right;">
+Point Percentage
+</th>
+<th style="text-align:right;">
+Wins
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">Min.</td>
-<td align="right">1997.000</td>
-<td align="right">2039.000</td>
-<td align="right">776.000</td>
-<td align="right">0.5040</td>
-<td align="right">352.000</td>
+<tr>
+<td style="text-align:left;">
+Min.
+</td>
+<td style="text-align:right;">
+1997.000
+</td>
+<td style="text-align:right;">
+2039.000
+</td>
+<td style="text-align:right;">
+776.000
+</td>
+<td style="text-align:right;">
+0.5040
+</td>
+<td style="text-align:right;">
+352.000
+</td>
 </tr>
-<tr class="even">
-<td align="left">1st Qu.</td>
-<td align="right">4264.500</td>
-<td align="right">4279.500</td>
-<td align="right">1757.500</td>
-<td align="right">0.5401</td>
-<td align="right">772.500</td>
+<tr>
+<td style="text-align:left;">
+1st Qu.
+</td>
+<td style="text-align:right;">
+4264.500
+</td>
+<td style="text-align:right;">
+4279.500
+</td>
+<td style="text-align:right;">
+1757.500
+</td>
+<td style="text-align:right;">
+0.5401
+</td>
+<td style="text-align:right;">
+772.500
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Median</td>
-<td align="right">5325.000</td>
-<td align="right">5660.000</td>
-<td align="right">2175.000</td>
-<td align="right">0.5561</td>
-<td align="right">968.000</td>
+<tr>
+<td style="text-align:left;">
+Median
+</td>
+<td style="text-align:right;">
+5325.000
+</td>
+<td style="text-align:right;">
+5660.000
+</td>
+<td style="text-align:right;">
+2175.000
+</td>
+<td style="text-align:right;">
+0.5561
+</td>
+<td style="text-align:right;">
+968.000
+</td>
 </tr>
-<tr class="even">
-<td align="left">Mean</td>
-<td align="right">7617.857</td>
-<td align="right">7736.571</td>
-<td align="right">2830.143</td>
-<td align="right">0.5499</td>
-<td align="right">1230.857</td>
+<tr>
+<td style="text-align:left;">
+Mean
+</td>
+<td style="text-align:right;">
+7617.857
+</td>
+<td style="text-align:right;">
+7736.571
+</td>
+<td style="text-align:right;">
+2830.143
+</td>
+<td style="text-align:right;">
+0.5499
+</td>
+<td style="text-align:right;">
+1230.857
+</td>
 </tr>
-<tr class="odd">
-<td align="left">3rd Qu.</td>
-<td align="right">8986.500</td>
-<td align="right">9261.000</td>
-<td align="right">3394.500</td>
-<td align="right">0.5628</td>
-<td align="right">1481.500</td>
+<tr>
+<td style="text-align:left;">
+3rd Qu.
+</td>
+<td style="text-align:right;">
+8986.500
+</td>
+<td style="text-align:right;">
+9261.000
+</td>
+<td style="text-align:right;">
+3394.500
+</td>
+<td style="text-align:right;">
+0.5628
+</td>
+<td style="text-align:right;">
+1481.500
+</td>
 </tr>
-<tr class="even">
-<td align="left">Max.</td>
-<td align="right">19501.000</td>
-<td align="right">19376.000</td>
-<td align="right">6556.000</td>
-<td align="right">0.5833</td>
-<td align="right">2788.000</td>
+<tr>
+<td style="text-align:left;">
+Max.
+</td>
+<td style="text-align:right;">
+19501.000
+</td>
+<td style="text-align:right;">
+19376.000
+</td>
+<td style="text-align:right;">
+6556.000
+</td>
+<td style="text-align:right;">
+0.5833
+</td>
+<td style="text-align:right;">
+2788.000
+</td>
 </tr>
 </tbody>
 </table>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">catesummary</span>(<span class="st">&quot;Pacific&quot;</span>)</code></pre></div>
 <table>
+<caption>
+Summary of division Pacific
+</caption>
 <thead>
-<tr class="header">
-<th align="left"></th>
-<th align="right">Goal Against</th>
-<th align="right">Goals For</th>
-<th align="right">Points</th>
-<th align="right">Point Percentage</th>
-<th align="right">Wins</th>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Goal Against
+</th>
+<th style="text-align:right;">
+Goals For
+</th>
+<th style="text-align:right;">
+Points
+</th>
+<th style="text-align:right;">
+Point Percentage
+</th>
+<th style="text-align:right;">
+Wins
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">Min.</td>
-<td align="right">669.000</td>
-<td align="right">748.000</td>
-<td align="right">288.00</td>
-<td align="right">0.4521</td>
-<td align="right">133.000</td>
+<tr>
+<td style="text-align:left;">
+Min.
+</td>
+<td style="text-align:right;">
+669.000
+</td>
+<td style="text-align:right;">
+748.000
+</td>
+<td style="text-align:right;">
+288.00
+</td>
+<td style="text-align:right;">
+0.4521
+</td>
+<td style="text-align:right;">
+133.000
+</td>
 </tr>
-<tr class="even">
-<td align="left">1st Qu.</td>
-<td align="right">4605.000</td>
-<td align="right">4473.250</td>
-<td align="right">1776.50</td>
-<td align="right">0.4908</td>
-<td align="right">777.250</td>
+<tr>
+<td style="text-align:left;">
+1st Qu.
+</td>
+<td style="text-align:right;">
+4605.000
+</td>
+<td style="text-align:right;">
+4473.250
+</td>
+<td style="text-align:right;">
+1776.50
+</td>
+<td style="text-align:right;">
+0.4908
+</td>
+<td style="text-align:right;">
+777.250
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Median</td>
-<td align="right">8039.500</td>
-<td align="right">8220.000</td>
-<td align="right">2835.00</td>
-<td align="right">0.5268</td>
-<td align="right">1241.500</td>
+<tr>
+<td style="text-align:left;">
+Median
+</td>
+<td style="text-align:right;">
+8039.500
+</td>
+<td style="text-align:right;">
+8220.000
+</td>
+<td style="text-align:right;">
+2835.00
+</td>
+<td style="text-align:right;">
+0.5268
+</td>
+<td style="text-align:right;">
+1241.500
+</td>
 </tr>
-<tr class="even">
-<td align="left">Mean</td>
-<td align="right">7591.375</td>
-<td align="right">7429.625</td>
-<td align="right">2477.75</td>
-<td align="right">0.5227</td>
-<td align="right">1076.125</td>
+<tr>
+<td style="text-align:left;">
+Mean
+</td>
+<td style="text-align:right;">
+7591.375
+</td>
+<td style="text-align:right;">
+7429.625
+</td>
+<td style="text-align:right;">
+2477.75
+</td>
+<td style="text-align:right;">
+0.5227
+</td>
+<td style="text-align:right;">
+1076.125
+</td>
 </tr>
-<tr class="odd">
-<td align="left">3rd Qu.</td>
-<td align="right">11062.000</td>
-<td align="right">10941.500</td>
-<td align="right">3469.50</td>
-<td align="right">0.5414</td>
-<td align="right">1509.750</td>
+<tr>
+<td style="text-align:left;">
+3rd Qu.
+</td>
+<td style="text-align:right;">
+11062.000
+</td>
+<td style="text-align:right;">
+10941.500
+</td>
+<td style="text-align:right;">
+3469.50
+</td>
+<td style="text-align:right;">
+0.5414
+</td>
+<td style="text-align:right;">
+1509.750
+</td>
 </tr>
-<tr class="even">
-<td align="left">Max.</td>
-<td align="right">13591.000</td>
-<td align="right">12910.000</td>
-<td align="right">4048.00</td>
-<td align="right">0.6128</td>
-<td align="right">1733.000</td>
+<tr>
+<td style="text-align:left;">
+Max.
+</td>
+<td style="text-align:right;">
+13591.000
+</td>
+<td style="text-align:right;">
+12910.000
+</td>
+<td style="text-align:right;">
+4048.00
+</td>
+<td style="text-align:right;">
+0.6128
+</td>
+<td style="text-align:right;">
+1733.000
+</td>
 </tr>
 </tbody>
 </table>
@@ -987,87 +1870,193 @@ rs &lt;-<span class="st"> </span><span class="kw">filter</span>(fourteams, data.
 pos &lt;-<span class="st"> </span><span class="kw">filter</span>(fourteams, data.gameTypeId<span class="op">==</span><span class="dv">3</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>data.gameTypeId)
 
 <span class="co">#print it out</span>
-<span class="kw">kable</span>(rs, <span class="dt">caption =</span> <span class="st">&quot;Data summary of selected team during regular season&quot;</span>, <span class="dt">col.names =</span> <span class="kw">c</span>(<span class="st">&quot;Team&quot;</span>, <span class="st">&quot;Game Played&quot;</span>, <span class="st">&quot;Win Rate&quot;</span>, <span class="st">&quot;Win on Road Rate&quot;</span>, <span class="st">&quot;Loss at Home Rate&quot;</span>))</code></pre></div>
+<span class="kw">kable</span>(rs, <span class="dt">format =</span> <span class="st">&quot;html&quot;</span>, <span class="dt">caption =</span> <span class="st">&quot;Data summary of selected team during regular season&quot;</span>, <span class="dt">col.names =</span> <span class="kw">c</span>(<span class="st">&quot;Team&quot;</span>, <span class="st">&quot;Game Played&quot;</span>, <span class="st">&quot;Win Rate&quot;</span>, <span class="st">&quot;Win on Road Rate&quot;</span>, <span class="st">&quot;Loss at Home Rate&quot;</span>))</code></pre></div>
 <table>
+<caption>
+Data summary of selected team during regular season
+</caption>
 <thead>
-<tr class="header">
-<th align="left">Team</th>
-<th align="right">Game Played</th>
-<th align="right">Win Rate</th>
-<th align="right">Win on Road Rate</th>
-<th align="right">Loss at Home Rate</th>
+<tr>
+<th style="text-align:left;">
+Team
+</th>
+<th style="text-align:right;">
+Game Played
+</th>
+<th style="text-align:right;">
+Win Rate
+</th>
+<th style="text-align:right;">
+Win on Road Rate
+</th>
+<th style="text-align:right;">
+Loss at Home Rate
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">New York Islanders</td>
-<td align="right">3732</td>
-<td align="right">0.4437299</td>
-<td align="right">0.4434783</td>
-<td align="right">0.4170792</td>
+<tr>
+<td style="text-align:left;">
+New York Islanders
+</td>
+<td style="text-align:right;">
+3732
+</td>
+<td style="text-align:right;">
+0.4437299
+</td>
+<td style="text-align:right;">
+0.4434783
+</td>
+<td style="text-align:right;">
+0.4170792
+</td>
 </tr>
-<tr class="even">
-<td align="left">Tampa Bay Lightning</td>
-<td align="right">2138</td>
-<td align="right">0.4438728</td>
-<td align="right">0.4400428</td>
-<td align="right">0.4306878</td>
+<tr>
+<td style="text-align:left;">
+Tampa Bay Lightning
+</td>
+<td style="text-align:right;">
+2138
+</td>
+<td style="text-align:right;">
+0.4438728
+</td>
+<td style="text-align:right;">
+0.4400428
+</td>
+<td style="text-align:right;">
+0.4306878
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Dallas Stars</td>
-<td align="right">2053</td>
-<td align="right">0.5168047</td>
-<td align="right">0.5381166</td>
-<td align="right">0.3457207</td>
+<tr>
+<td style="text-align:left;">
+Dallas Stars
+</td>
+<td style="text-align:right;">
+2053
+</td>
+<td style="text-align:right;">
+0.5168047
+</td>
+<td style="text-align:right;">
+0.5381166
+</td>
+<td style="text-align:right;">
+0.3457207
+</td>
 </tr>
-<tr class="even">
-<td align="left">Vegas Golden Knights</td>
-<td align="right">235</td>
-<td align="right">0.5659574</td>
-<td align="right">0.5523810</td>
-<td align="right">0.3055556</td>
+<tr>
+<td style="text-align:left;">
+Vegas Golden Knights
+</td>
+<td style="text-align:right;">
+235
+</td>
+<td style="text-align:right;">
+0.5659574
+</td>
+<td style="text-align:right;">
+0.5523810
+</td>
+<td style="text-align:right;">
+0.3055556
+</td>
 </tr>
 </tbody>
 </table>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">kable</span>(pos, <span class="dt">caption =</span> <span class="st">&quot;Data summary of selected team during play off season&quot;</span>, <span class="dt">col.names =</span> <span class="kw">c</span>(<span class="st">&quot;Team&quot;</span>, <span class="st">&quot;Game Played&quot;</span>, <span class="st">&quot;Win Rate&quot;</span>, <span class="st">&quot;Win on Road Rate&quot;</span>, <span class="st">&quot;Loss at Home Rate&quot;</span>))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">kable</span>(pos, <span class="dt">format =</span> <span class="st">&quot;html&quot;</span>, <span class="dt">caption =</span> <span class="st">&quot;Data summary of selected team during play off season&quot;</span>, <span class="dt">col.names =</span> <span class="kw">c</span>(<span class="st">&quot;Team&quot;</span>, <span class="st">&quot;Game Played&quot;</span>, <span class="st">&quot;Win Rate&quot;</span>, <span class="st">&quot;Win on Road Rate&quot;</span>, <span class="st">&quot;Loss at Home Rate&quot;</span>))</code></pre></div>
 <table>
+<caption>
+Data summary of selected team during play off season
+</caption>
 <thead>
-<tr class="header">
-<th align="left">Team</th>
-<th align="right">Game Played</th>
-<th align="right">Win Rate</th>
-<th align="right">Win on Road Rate</th>
-<th align="right">Loss at Home Rate</th>
+<tr>
+<th style="text-align:left;">
+Team
+</th>
+<th style="text-align:right;">
+Game Played
+</th>
+<th style="text-align:right;">
+Win Rate
+</th>
+<th style="text-align:right;">
+Win on Road Rate
+</th>
+<th style="text-align:right;">
+Loss at Home Rate
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">New York Islanders</td>
-<td align="right">294</td>
-<td align="right">0.5476190</td>
-<td align="right">0.4610390</td>
-<td align="right">0.3571429</td>
+<tr>
+<td style="text-align:left;">
+New York Islanders
+</td>
+<td style="text-align:right;">
+294
+</td>
+<td style="text-align:right;">
+0.5476190
+</td>
+<td style="text-align:right;">
+0.4610390
+</td>
+<td style="text-align:right;">
+0.3571429
+</td>
 </tr>
-<tr class="even">
-<td align="left">Tampa Bay Lightning</td>
-<td align="right">156</td>
-<td align="right">0.5576923</td>
-<td align="right">0.5866667</td>
-<td align="right">0.4691358</td>
+<tr>
+<td style="text-align:left;">
+Tampa Bay Lightning
+</td>
+<td style="text-align:right;">
+156
+</td>
+<td style="text-align:right;">
+0.5576923
+</td>
+<td style="text-align:right;">
+0.5866667
+</td>
+<td style="text-align:right;">
+0.4691358
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Dallas Stars</td>
-<td align="right">194</td>
-<td align="right">0.5309278</td>
-<td align="right">0.5051546</td>
-<td align="right">0.4432990</td>
+<tr>
+<td style="text-align:left;">
+Dallas Stars
+</td>
+<td style="text-align:right;">
+194
+</td>
+<td style="text-align:right;">
+0.5309278
+</td>
+<td style="text-align:right;">
+0.5051546
+</td>
+<td style="text-align:right;">
+0.4432990
+</td>
 </tr>
-<tr class="even">
-<td align="left">Vegas Golden Knights</td>
-<td align="right">47</td>
-<td align="right">0.5957447</td>
-<td align="right">0.5217391</td>
-<td align="right">0.3333333</td>
+<tr>
+<td style="text-align:left;">
+Vegas Golden Knights
+</td>
+<td style="text-align:right;">
+47
+</td>
+<td style="text-align:right;">
+0.5957447
+</td>
+<td style="text-align:right;">
+0.5217391
+</td>
+<td style="text-align:right;">
+0.3333333
+</td>
 </tr>
 </tbody>
 </table>
@@ -1075,87 +2064,191 @@ pos &lt;-<span class="st"> </span><span class="kw">filter</span>(fourteams, data
 <h3 id="distribution-of-skater-position-for-each-team">Distribution of skater position for each team</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#showing skater position distribution of selected between non-active player and avctive player</span>
 table2 &lt;-<span class="st"> </span><span class="kw">table</span>(skaterrecord<span class="op">$</span>data.positionCode, skaterrecord<span class="op">$</span>data.franchiseName, skaterrecord<span class="op">$</span>data.activePlayer) 
-<span class="kw">kable</span>(table2[ , ,<span class="dv">1</span>],<span class="dt">caption =</span> <span class="st">&quot; Position distribution of skater for non-active player&quot;</span>)</code></pre></div>
+<span class="kw">kable</span>(table2[ , ,<span class="dv">1</span>], <span class="dt">format =</span> <span class="st">&quot;html&quot;</span>,<span class="dt">caption =</span> <span class="st">&quot; Position distribution of skater for non-active player&quot;</span>)</code></pre></div>
 <table>
+<caption>
+Position distribution of skater for non-active player
+</caption>
 <thead>
-<tr class="header">
-<th align="left"></th>
-<th align="right">Dallas Stars</th>
-<th align="right">New York Islanders</th>
-<th align="right">Tampa Bay Lightning</th>
-<th align="right">Vegas Golden Knights</th>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Dallas Stars
+</th>
+<th style="text-align:right;">
+New York Islanders
+</th>
+<th style="text-align:right;">
+Tampa Bay Lightning
+</th>
+<th style="text-align:right;">
+Vegas Golden Knights
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">C</td>
-<td align="right">135</td>
-<td align="right">120</td>
-<td align="right">59</td>
-<td align="right">1</td>
+<tr>
+<td style="text-align:left;">
+C
+</td>
+<td style="text-align:right;">
+135
+</td>
+<td style="text-align:right;">
+120
+</td>
+<td style="text-align:right;">
+59
+</td>
+<td style="text-align:right;">
+1
+</td>
 </tr>
-<tr class="even">
-<td align="left">D</td>
-<td align="right">179</td>
-<td align="right">159</td>
-<td align="right">126</td>
-<td align="right">1</td>
+<tr>
+<td style="text-align:left;">
+D
+</td>
+<td style="text-align:right;">
+179
+</td>
+<td style="text-align:right;">
+159
+</td>
+<td style="text-align:right;">
+126
+</td>
+<td style="text-align:right;">
+1
+</td>
 </tr>
-<tr class="odd">
-<td align="left">L</td>
-<td align="right">124</td>
-<td align="right">98</td>
-<td align="right">63</td>
-<td align="right">1</td>
+<tr>
+<td style="text-align:left;">
+L
+</td>
+<td style="text-align:right;">
+124
+</td>
+<td style="text-align:right;">
+98
+</td>
+<td style="text-align:right;">
+63
+</td>
+<td style="text-align:right;">
+1
+</td>
 </tr>
-<tr class="even">
-<td align="left">R</td>
-<td align="right">114</td>
-<td align="right">78</td>
-<td align="right">67</td>
-<td align="right">1</td>
+<tr>
+<td style="text-align:left;">
+R
+</td>
+<td style="text-align:right;">
+114
+</td>
+<td style="text-align:right;">
+78
+</td>
+<td style="text-align:right;">
+67
+</td>
+<td style="text-align:right;">
+1
+</td>
 </tr>
 </tbody>
 </table>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">kable</span>(table2[ , ,<span class="dv">2</span>],<span class="dt">caption =</span> <span class="st">&quot; Position distribution of skater for active player&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">kable</span>(table2[ , ,<span class="dv">2</span>], <span class="dt">format =</span> <span class="st">&quot;html&quot;</span>,<span class="dt">caption =</span> <span class="st">&quot; Position distribution of skater for active player&quot;</span>)</code></pre></div>
 <table>
+<caption>
+Position distribution of skater for active player
+</caption>
 <thead>
-<tr class="header">
-<th align="left"></th>
-<th align="right">Dallas Stars</th>
-<th align="right">New York Islanders</th>
-<th align="right">Tampa Bay Lightning</th>
-<th align="right">Vegas Golden Knights</th>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Dallas Stars
+</th>
+<th style="text-align:right;">
+New York Islanders
+</th>
+<th style="text-align:right;">
+Tampa Bay Lightning
+</th>
+<th style="text-align:right;">
+Vegas Golden Knights
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">C</td>
-<td align="right">17</td>
-<td align="right">15</td>
-<td align="right">22</td>
-<td align="right">14</td>
+<tr>
+<td style="text-align:left;">
+C
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+14
+</td>
 </tr>
-<tr class="even">
-<td align="left">D</td>
-<td align="right">25</td>
-<td align="right">19</td>
-<td align="right">15</td>
-<td align="right">14</td>
+<tr>
+<td style="text-align:left;">
+D
+</td>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+14
+</td>
 </tr>
-<tr class="odd">
-<td align="left">L</td>
-<td align="right">10</td>
-<td align="right">10</td>
-<td align="right">6</td>
-<td align="right">10</td>
+<tr>
+<td style="text-align:left;">
+L
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+10
+</td>
 </tr>
-<tr class="even">
-<td align="left">R</td>
-<td align="right">11</td>
-<td align="right">10</td>
-<td align="right">8</td>
-<td align="right">5</td>
+<tr>
+<td style="text-align:left;">
+R
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+5
+</td>
 </tr>
 </tbody>
 </table>
@@ -1172,7 +2265,7 @@ boxplot1<span class="op">+</span><span class="kw">geom_boxplot</span>()<span cla
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#showing the win rate boxplot of the goalier of selected team</span>
 boxplot2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data=</span>goalierecord,<span class="kw">aes</span>(<span class="dt">x=</span>data.franchiseName, <span class="dt">y=</span>winRate))
 boxplot2<span class="op">+</span><span class="kw">geom_boxplot</span>()<span class="op">+</span><span class="kw">geom_jitter</span>(<span class="kw">aes</span>(<span class="dt">color=</span>data.franchiseName))<span class="op">+</span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;Boxplot of win rate for goalier&quot;</span>, <span class="dt">x=</span><span class="st">&quot;Team&quot;</span>, <span class="dt">y=</span><span class="st">&quot; Goalier's win rate&quot;</span>)</code></pre></div>
-<p><img src="data:image/png;base64,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" /> In this plot we can notice that <strong>Tampa Bay Lightning's</strong> goalier havehiest average win rate, Even one of them has a 100% winning rate. I bet that is because they play less games.</p>
+<p><img src="data:image/png;base64,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" /> In this plot we can notice that <strong>Tampa Bay Lightning's</strong> goalier havehiest average win rate, Even one of them has a 100% winning rate. I bet that is because they play less games.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">scatter1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data=</span>goalierecord, <span class="kw">aes</span>(<span class="dt">x=</span>data.mostGoalsAgainstOneGame, <span class="dt">y=</span>data.mostSavesOneGame))
 
 scatter1<span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color=</span>data.activePlayer))<span class="op">+</span><span class="kw">geom_smooth</span>(<span class="kw">aes</span>(<span class="dt">group=</span>data.franchiseName), <span class="dt">method=</span>lm, <span class="dt">color=</span> <span class="st">&quot;orange&quot;</span>)<span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Most saves vs Most goal against of goalier&quot;</span>, <span class="dt">x=</span><span class="st">&quot;Most Goal Against (in one game)&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Most Saves (in one game)&quot;</span>)<span class="op">+</span><span class="kw">facet_grid</span>(.<span class="op">~</span>data.franchiseName)</code></pre></div>
