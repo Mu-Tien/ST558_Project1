@@ -8,7 +8,7 @@ Mu-Tien, Lee
 -   [Data cleaning](#data-cleaning)
     -   [Building functions to reach statsAPI](#building-functions-to-reach-statsapi)
     -   [Building functions to reach recordAPI](#building-functions-to-reach-recordapi)
-    -   [Accessory for API endpoints](#accessory-for-api-endpoints)
+    -   [Accessory for API endpoint](#accessory-for-api-endpoint)
 -   [Data analysis](#data-analysis)
     -   [Building data for later use](#building-data-for-later-use)
     -   [Numeric summarize](#numeric-summarize)
@@ -782,8 +782,8 @@ Golden Knights
 </tr>
 </tbody>
 </table>
-Accessory for API endpoints
----------------------------
+Accessory for API endpoint
+--------------------------
 
 ``` r
 #build a wrapper function to let user reach endpoints easily

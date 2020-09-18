@@ -142,7 +142,7 @@ kable(base, caption = "ID table for teams", format = "html")
 ```
 
 
-## Accessory for API endpoints  
+## Accessory for API endpoint
 
 ```{r accessory for endpoints}
 #build a wrapper function to let user reach endpoints easily
