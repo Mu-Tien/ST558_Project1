@@ -27,6 +27,8 @@ library(ggplot2)
 library(qwraps2)
 ```
 
+# Discription
+This project are going to talk about some data in NHL the franchise are loaded from <https://gitlab.com/dword4/nhlapi/-/blob/master/records-api.md> and <https://gitlab.com/dword4/nhlapi/-/blob/master/stats-api.md>. You may use `endpoint` function and key in with correct endpoint's name to get whatever table you would like to get. At some point you can assign a specific team by both name and team ID/franchise ID. After that I will show you some data analysis among all active team and some selected team. wish you can have some fun in this project!  
 
 # Data cleaning
 ## Building functions to reach statsAPI
@@ -86,19 +88,11 @@ mydata<- as.data.frame(mydata)
 return(mydata)
 }
 
-#m<- statsAPI("expand=team.roster")
-#n<- statsAPI("expand=person.names")
-#o<- statsAPI("expand=team.schedule.next")
-#p<- statsAPI("expand=team.schedule.previous")
-#q<- statsAPI("expand=team.stats",12)
-#r<- statsAPI("expand=team.roster&season",teamid=54, season = 19971998)
-#s<- statsAPI("teamId","12,5,1")
-#t<- statsAPI("stats=statsSingleSeasonPlayoffs")
-
 ```
 
 ## Building functions to reach recordAPI
 ```{r reaching recordAPI}
+#make a function to let user reach record API
 recordAPI <- function(x,franchiseID=NULL,...){
 #setting up base url for stats API
 base_url <-"https://records.nhl.com/site/api"
@@ -132,14 +126,10 @@ mydata<- as.data.frame(mydata)
 return(mydata)
 }
 
-#a<-recordAPI("franchise")
-#b<-recordAPI("franchise-team-totals")
-#c<-recordAPI("franchise-season-records",11)
-#d<-recordAPI("franchise-goalie-records",1)
-#e<-recordAPI("franchise-skater-records",1)
 ```
 
-Below is a function that can help you read whatever the endpoint you would like to get, please key in the following option in the function.
+Below is a function that can help you read whatever the endpoint you would like to get, please key in the following option in the function. NOTE: If you want to reach out to the **teamId** please put your teamID as character, ex:`"2,12,22"` to reach the table.  
+
 ```{r describe the option of the function}
 endpoints <- c("franchise","franchise-team-totals","franchise-season-records","franchise-goalie-records","franchise-skater-records","expand=team.roster","expand=person.names","expand=team.schedule.next","expand=team.schedule.previous","expand=team.stats","expand=team.roster&season","teamId","stats=statsSingleSeasonPlayoffs")
 
@@ -147,13 +137,14 @@ idOption <- c(rep("None",2),rep("franchiseID or teamName without location",3),re
 
 seasonOption <- c(rep("No",10),"Yes", "No","No")
 
-kable(cbind(endpoints,idOption,seasonOption), format = "html")
-kable(base, format = "html",caption = "Id table for teams")
+kable(cbind(endpoints,idOption,seasonOption))
+kable(base, caption = "ID table for teams")
 ```
 
 
 ## Accessory for API endpoints
 ```{r accessory for endpoints}
+#build a wrapper function to let user reach endpoints easily
 endpoints <- function(x,...){
   record <- c("franchise","franchise-team-totals","franchise-season-records", "franchise-goalie-records", "franchise-skater-records")
   
@@ -163,7 +154,6 @@ endpoints <- function(x,...){
   else if (x %in% stats) statsAPI(x,...)
   else stop("Please enter the correct name of your enpoints")
 }
-#try<-endpoints("expand=person.names", teamID="Bruins")
 ```
 
 # Data analysis
@@ -183,7 +173,7 @@ new <- left_join(teamtotal,division, by="data.teamId")
 #calculating some rate
 new <- new %>% mutate(winrate=data.wins/data.gamesPlayed, winlossrate=data.wins/data.losses, overtimelossrate= data.overtimeLosses/data.losses, goalpergame=data.goalsFor/data.gamesPlayed, averagePenaltytime= data.penaltyMinutes/data.gamesPlayed)%>% mutate(lossathomerate=data.homeLosses/(data.homeLosses+data.homeWins),winonraodrate=data.roadWins/(data.roadWins+data.roadLosses))
 
-#put the level on the age of te team
+#put the level on the age of teams
 for (i in 1: nrow(new)){
   
   if (new$data.firstSeasonId[i]/10000<1943){
@@ -207,7 +197,7 @@ for (i in 1: nrow(new)){
 ```{r contingency table}
 #level the age
 new$age <- as.factor(new$age)
-levels(new$age)<-list("1917-1942"="Freshman","1942-1967"="Sophomore","1967-1992"="Junior","1992-2017"="Senior")
+levels(new$age)<-list("1917-1942"="Senior","1942-1967"="Junior","1967-1992"="Sophomore","1992-2017"="Freshman")
 
 #show the table
 datafortable <- new %>% filter(data.gameTypeId==2)
@@ -215,62 +205,69 @@ table1 <- table(datafortable$age, datafortable$teams.division.name)
 kable(table1,caption = " Division and Team established year information") 
 
 ```
-In this table, we can notice that Atlantic has younger team distribution when Centrl and Pacific have more older team
+In this table, we can notice that Atlantic has older team distribution when Centrl and Pacific have more younger team
 
 ###Numeric summary table
 ```{r summary}
 #make a summary table among all teams
+
+#build a function for calculation
 calculate <- function(x,...){
   data <- new %>% filter(data.gameTypeId == x)%>% select(winrate,winlossrate,overtimelossrate,goalpergame)
   if (x==2) type <- "regular season" else type <- "play off season"
 
-kable(apply(data,2, summary),format = "html", digit = 4,caption = paste0("Summary among all active teams during ", type))
+kable(apply(data,2, summary), digit = 4,caption = paste0("Summary among all active teams during ", type))
 }
 calculate(2)
 calculate(3)
 
 ```
+In this two table we can see that the  win rate and goal per game have no huge difference between regular season and play off season. However, the over time loss rate is very differet. Also, we can discover that the mean is higher that 755 percentile which meas that only a small group of team have over time loss in play off season.  
 
 ```{r categorical summary}
 #make a summary with grouping data by division
 catesummary <- function(x,...){
   datacatesumm <- new %>% filter(data.gameTypeId == 2)%>% filter(teams.division.name == x) %>% select(data.goalsAgainst,data.goalsFor, data.points, data.pointPctg, data.wins)
-    kable(apply(datacatesumm,2, summary), format="html", caption = paste("Summary of division", x), digit = 4)
-
+    kable(apply(datacatesumm,2, summary), caption = paste("Summary of division", x), digit = 4, col.names = c("Goal Against", "Goals For", "Points", "Point Percentage", " Wins"))
 }
 catesummary("Metropolitan")
 catesummary("Atlantic")
 catesummary("Central")
 catesummary("Pacific")
 ```
+In these table we can notice that Atlantic is tha division that has the most win among all division, this is very reasonable for me because in the previous table, we know that Atlantic is the one that has more older teams. Other data seems reasonable, in goals Against and Goals for the summary are similar among all the division, only Pacific and Central has lower minimum. Maybe some younger teams just played less games than others.  
 
 ##Plots
-### a bar plot tells conference and division
+### A bar plot tells conference and division
 ```{r bar plot}
 #draw a bar plot to show the count in each division and conference
 type2 <- new %>% filter(data.gameTypeId==2)
 bar1 <- ggplot(data=type2,aes(x=teams.conference.name))
-bar1+ geom_bar(aes(fill=teams.division.name), position = "dodge")+labs(title = "Barplot for teams' conference and division")+xlab("conference")
+bar1+ geom_bar(aes(fill=teams.division.name), position = "dodge")+labs(title = "Barplot for teams' Conference and Division")+xlab("Conference")
 ```
+This Bar plot show you the count of each Dicision and Conference. So we know that there are two conference, each has two division. In each division there are 7~8 teams.  
 
-
-### a histogram of penalty times
+### Histogram of penalty times
 ```{r histogram}
 #seperate data by regular season and play off season since the differnce are obvious
 type3 <- new %>% filter(data.gameTypeId==3)
 
 #make two histogram to show the distribution of penalty time
 histo1 <- ggplot(data=type2,aes(x=averagePenaltytime))
-histo1+geom_histogram(binwidth = 1, aes(fill=teams.division.name))+labs(title = "Histogram for penalty time during relugar season")+xlab("penalty time in minutes")
+histo1+geom_histogram(binwidth = 1, aes(fill=age))+labs(title = "Histogram for penalty time during relugar season")+xlab("Average penalty time (in minutes)")
 
 histo2 <- ggplot(data=type3,aes(x=averagePenaltytime))
-histo2+geom_histogram(binwidth = 1, aes(fill=age))+labs(title = "Histogram for penalty time during play off season")+xlab("penalty time in minutes")
+histo2+geom_histogram(binwidth = 1, aes(fill=age))+labs(title = "Histogram for penalty time during play off season")+xlab("Average penalty time (in minutes)")
 ```
 
-# data analysis between 4 selected team
-I choose NY islanders, Tampa Bay lightening, Vegas Golden Knights, Dallas stars, which are in the Conference Finals in 2019-20 NHL season
+In these 2 plots we can say that the oldest teams have lower average penalty time both in the regular seasons and in the play off seasons if we don't take recent established teams into consider.   
 
-```{r}
+
+# Data analysis between 4 selected team
+I choose NY islanders, Tampa Bay lightening, Vegas Golden Knights, Dallas stars, which are in the Conference Finals in 2019-20 NHL season.
+
+## Arrange data for later use
+```{r data cleaning for selected team}
 #filtering old dataset to only selected groups
 fourteams <- filter(new, data.teamId %in% c(2, 14, 25, 54)) 
 fourteams <- fourteams 
@@ -301,42 +298,61 @@ skaterrecord <- rbind.data.frame(NY, Tampa_bay, Vegas, Dallas)
 goalierecord <- goalierecord %>% mutate(winRate=data.wins/data.gamesPlayed)
 ```
 
-##Numerical summary
-
+## Numerical summary
+### Some data to compare between these team
 ```{r}
 #rearrange the dataset
 fourteams <- fourteams %>% select(data.teamName,data.gamesPlayed,winrate,winonraodrate,lossathomerate,data.gameTypeId)%>% arrange( data.gameTypeId)
 
+rs <- filter(fourteams, data.gameTypeId==2) %>% select(-data.gameTypeId)
+pos <- filter(fourteams, data.gameTypeId==3) %>% select(-data.gameTypeId)
+
 #print it out
-kable(fourteams[1:4,1:5], caption = "data summary of selected team during regular season")
-kable(fourteams[5:8,1:5], caption = "data summary of selected team during play off season")
+kable(rs, caption = "Data summary of selected team during regular season", col.names = c("Team", "Game Played", "Win Rate", "Win on Road Rate", "Loss at Home Rate"))
+kable(pos, caption = "Data summary of selected team during play off season", col.names = c("Team", "Game Played", "Win Rate", "Win on Road Rate", "Loss at Home Rate"))
 
 ```
 
+These table show the data directly, we can notice that **Vegas Golden Knights** has not played many games. Because this team started to play in NHL in 2017. Therefore, the data seems to be not so compareable to other three groups. But we can also say that, this young group has less likely to loss at home than any others.  
 
-```{r}
+### Distribution of skater position for each team
+```{r skater position distribution table}
 #showing skater position distribution of selected between non-active player and avctive player
 table2 <- table(skaterrecord$data.positionCode, skaterrecord$data.franchiseName, skaterrecord$data.activePlayer) 
-kable(table2[ , ,1],format = "html",caption = " teams and skatter position for non-active player")
-kable(table2[ , ,2],format = "html",caption = " teams and skatter position for active player")
+kable(table2[ , ,1],caption = " Position distribution of skater for non-active player")
+kable(table2[ , ,2],caption = " Position distribution of skater for active player")
 ```
 
-##Plots
-### scatter and boxplot 
+The distribution of the position is similar among each team about 15 for position c and D and about 10 for L and R. **Vegaas golden Knights** has less amount in each position maybe because they are a 3-year-old team.  
+
+## Plots
+### Scatter and boxplot 
 ```{r boxplot for activeskater}
-#choosing player that have already played over 15 games
-actskaterrecord <- skaterrecord %>%  filter(data.gamesPlayed > 15)
+#choosing player that have already played over 10 games
+actskaterrecord <- skaterrecord %>%  filter(data.gamesPlayed > 10)
 
 #make a boxplot for skater to see the summary of most point in one season
 boxplot1 <- ggplot(data=actskaterrecord,aes(x=data.franchiseName, y=data.mostPointsOneSeason))
-boxplot1+geom_boxplot()+labs(title="Boxplot of most point in one season for skater who palyed more than 15 games")
+boxplot1+geom_boxplot()+labs(title="Boxplot of most point in one season for skater who palyed more than 15 games", x="Team", y="Skater's Most Point in One Season")
 
 ```
+We can say that **Vegas Golden Knights** has higher average points in one season and **Tampa Bay Lightning** has a liitle bit lower. Also, there are some outliers for **New York Islanders** and **Tampa Bay Lightning**. I personnally think that this is Rare in a century. Many fter 50 years ** Vegas Golen Knights** will also have some skaters who will get more than 100 points in one season.  
 
 ```{r boxplot for all goalier}
 #showing the win rate boxplot of the goalier of selected team
 boxplot2 <- ggplot(data=goalierecord,aes(x=data.franchiseName, y=winRate))
-boxplot2+geom_boxplot()+geom_jitter(aes(color=data.franchiseName))+labs(title="Boxplot of win rate for goalier")
+boxplot2+geom_boxplot()+geom_jitter(aes(color=data.franchiseName))+labs(title="Boxplot of win rate for goalier", x="Team", y=" Goalier's win rate")
 ```
 
-#render("Project1.Rmd", output_format ="github_document", output_file=I("README.md"))
+```{r scatter plot for goalier}
+scatter1 <- ggplot(data=goalierecord, aes(x=data.mostGoalsAgainstOneGame, y=data.mostSavesOneGame))
+
+scatter1+ geom_point(aes(color=data.activePlayer))+geom_smooth(aes(group=data.franchiseName), method=lm, color= "orange")+ labs(title = "Most saves vs Most goal against of goalier", x="Most Goal Against (in one game)", y="Most Saves (in one game)")+facet_grid(.~data.franchiseName)
+```
+
+In this plot we can notice that **Tampa Bay Lightning's** goalier are worse savers but better goal maker than other teams' goalier.
+
+#The End
+Thank you for reading my Prooject.
+
+render("Project1.Rmd", output_format ="github_document", output_file=I("README.md"))
