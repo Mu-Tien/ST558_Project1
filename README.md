@@ -554,7 +554,7 @@ boxplot2 <- ggplot(data=goalierecord,aes(x=data.franchiseName, y=winRate))
 boxplot2+geom_boxplot()+geom_jitter(aes(color=data.franchiseName))+labs(title="Boxplot of win rate for goalier", x="Team", y=" Goalier's win rate")
 ```
 
-![](README_files/figure-markdown_github/boxplot%20for%20all%20goalier-1.png)
+![](README_files/figure-markdown_github/boxplot%20for%20all%20goalier-1.png) In this plot we can notice that **Tampa Bay Lightning's** goalier havehiest average win rate, Even one of them has a 100% winning rate. I bet that is because they play less games.
 
 ``` r
 scatter1 <- ggplot(data=goalierecord, aes(x=data.mostGoalsAgainstOneGame, y=data.mostSavesOneGame))
