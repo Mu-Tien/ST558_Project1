@@ -7,7 +7,7 @@ output:
       toc: true
 ---
 
-```{r setup, include=FALSE, linewidth=60}
+```{r setup, include=FALSE, linewidth=100}
 knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning=FALSE)
 
 ```
