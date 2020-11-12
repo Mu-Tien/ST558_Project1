@@ -1,5 +1,5 @@
 ---
-title: "ST558 Project 1"
+title: "NHL data analysis"
 author: "Mu-Tien, Lee"
 date: "2020,09.04"
 output:
@@ -8,11 +8,11 @@ output:
 ---
 
 ```{r setup, include=FALSE, linewidth=100}
-knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning=FALSE)
+knitr::opts_chunk$set(echo = FALSE, message=FALSE, warning=FALSE)
 
 ```
 
-# Require Package
+
 ```{r require package}
 
 library(rmarkdown)
@@ -28,11 +28,11 @@ library(qwraps2)
 ```
 
 # Discription
-This project are going to talk about some data in NHL the franchise are loaded from <https://gitlab.com/dword4/nhlapi/-/blob/master/records-api.md> and <https://gitlab.com/dword4/nhlapi/-/blob/master/stats-api.md>. You may use `endpoint` function and key in with correct endpoint's name to get whatever table you would like to get. At some point you can assign a specific team by both name and team ID/franchise ID. After that I will show you some data analysis among all active team and some selected team. wish you can have some fun in this project!  
+This project is going to talk about some data in NHL the franchise are loaded from <https://gitlab.com/dword4/nhlapi/-/blob/master/records-api.md> and <https://gitlab.com/dword4/nhlapi/-/blob/master/stats-api.md>. You may use `endpoint` function and key in with correct endpoint's name to get whatever table you would like to get. At some point you can assign a specific team by both name and team ID/franchise ID. After that I will show you some data analysis among all active team and some selected team. wish you can have some fun in this project!  
 
 # Data cleaning
 ## Building functions to reach statsAPI
-```{r reaching statsAPI}
+```{r reaching statsAPI, echo=TRUE}
 #build up base dataset for switch team.names and team.ID
 text <- content(GET("https://statsapi.web.nhl.com/api/v1/teams?expand=team.roster"),"text")
 base <- fromJSON(text, flatten = TRUE) 
@@ -130,7 +130,7 @@ return(mydata)
 
 Below is a function that can help you read whatever the endpoint you would like to get, please key in the following option in the function. NOTE: If you want to reach out to the **teamId** please put your teamID as character, ex:`"2,12,22"` to reach the table.  
 
-```{r describe the option of the function}
+```{r describe the option of the function, echo=TRUE}
 endpoints <- c("franchise","franchise-team-totals","franchise-season-records","franchise-goalie-records","franchise-skater-records","expand=team.roster","expand=person.names","expand=team.schedule.next","expand=team.schedule.previous","expand=team.stats","expand=team.roster&season","teamId","stats=statsSingleSeasonPlayoffs")
 
 idOption <- c(rep("None",2),rep("franchiseID or teamName without location",3),rep("teamID or teamName without location",8))
@@ -143,8 +143,7 @@ kable(base, caption = "ID table for teams", format = "html")
 
 
 ## Accessory for API endpoint
-
-```{r accessory for endpoints}
+```{r accessory for endpoints, echo=TRUE}
 #build a wrapper function to let user reach endpoints easily
 endpoints <- function(x,...){
   record <- c("franchise","franchise-team-totals","franchise-season-records", "franchise-goalie-records", "franchise-skater-records")
@@ -156,10 +155,10 @@ endpoints <- function(x,...){
   else stop("Please enter the correct name of your enpoints")
 }
 ```
+We'll use this function to reach out the API in the pollowing report
 
 # Data analysis
 
-## Building data for later use
 ```{r build my data}
 #get some wins/losses data for active teams
 teamtotal<-endpoints("franchise-team-totals")%>% filter(is.na(data.lastSeasonId))
@@ -194,7 +193,9 @@ for (i in 1: nrow(new)){
 ```
 
 ## Numeric summarize
-### A contingency table (Division*Fist year of play)
+
+### A contingency table (Division*Fist year of play)\
+
 ```{r contingency table}
 #level the age
 new$age <- as.factor(new$age)
@@ -206,9 +207,9 @@ table1 <- table(datafortable$age, datafortable$teams.division.name)
 kable(table1,caption = " Division and Team established year information", format = "html")
 
 ```
-In this table, we can notice that Atlantic has older team distribution when Centrl and Pacific have more younger team
+In this table, we can notice that Atlantic has older team distribution when Central and Pacific have more younger team\
 
-###Numeric summary table
+### Numeric summary table
 ```{r summary}
 #make a summary table among all teams
 
@@ -236,9 +237,11 @@ catesummary("Atlantic")
 catesummary("Central")
 catesummary("Pacific")
 ```
-In these table we can notice that Atlantic is tha division that has the most win among all division, this is very reasonable for me because in the previous table, we know that Atlantic is the one that has more older teams. Other data seems reasonable, in goals Against and Goals for the summary are similar among all the division, only Pacific and Central has lower minimum. Maybe some younger teams just played less games than others.  
+In these table we can notice that Atlantic is tha division that has the most win among all division, this is very reasonable for me because in the previous table, we know that Atlantic is the one that has more older teams. Other data seems reasonable, in goals Against and Goals for the summary are similar among all the division, only Pacific and Central has lower minimum. Maybe some younger teams just played less games than others.\
 
-##Plots
+
+## Plots
+
 ### A bar plot tells conference and division
 ```{r bar plot}
 #draw a bar plot to show the count in each division and conference
@@ -246,7 +249,7 @@ type2 <- new %>% filter(data.gameTypeId==2)
 bar1 <- ggplot(data=type2,aes(x=teams.conference.name))
 bar1+ geom_bar(aes(fill=teams.division.name), position = "dodge")+labs(title = "Barplot for teams' Conference and Division")+xlab("Conference")
 ```
-This Bar plot show you the count of each Dicision and Conference. So we know that there are two conference, each has two division. In each division there are 7~8 teams.  
+This Bar plot show you the count of each Division and Conference. So we know that there are two conference, each has two division. In each division there are 7~8 teams.\  
 
 ### Histogram of penalty times
 ```{r histogram}
@@ -261,13 +264,13 @@ histo2 <- ggplot(data=type3,aes(x=averagePenaltytime))
 histo2+geom_histogram(binwidth = 1, aes(fill=age))+labs(title = "Histogram for penalty time during play off season")+xlab("Average penalty time (in minutes)")
 ```
 
-In these 2 plots we can say that the oldest teams have lower average penalty time both in the regular seasons and in the play off seasons if we don't take recent established teams into consider.   
+In these 2 plots we can say that the oldest teams have lower average penalty time both in the regular seasons and in the play off seasons if we don't take recent established teams into consider.\
+
 
 
 # Data analysis between 4 selected team
 I choose NY islanders, Tampa Bay lightening, Vegas Golden Knights, Dallas stars, which are in the Conference Finals in 2019-20 NHL season.
 
-## Arrange data for later use
 ```{r data cleaning for selected team}
 #filtering old dataset to only selected groups
 fourteams <- filter(new, data.teamId %in% c(2, 14, 25, 54)) 
@@ -337,7 +340,7 @@ boxplot1 <- ggplot(data=actskaterrecord,aes(x=data.franchiseName, y=data.mostPoi
 boxplot1+geom_boxplot()+labs(title="Boxplot of most point in one season for skater who palyed more than 15 games", x="Team", y="Skater's Most Point in One Season")
 
 ```
-We can say that **Vegas Golden Knights** has higher average points in one season and **Tampa Bay Lightning** has a liitle bit lower. Also, there are some outliers for **New York Islanders** and **Tampa Bay Lightning**. I personnally think that this is Rare in a century. Many fter 50 years ** Vegas Golen Knights** will also have some skaters who will get more than 100 points in one season.  
+We can say that **Vegas Golden Knights** has higher average points in one season and **Tampa Bay Lightning** has a liitle bit lower. Also, there are some outliers for **New York Islanders** and **Tampa Bay Lightning**. I personnally think that this is Rare in a century. Many fter 50 years **Vegas Golen Knights** will also have some skaters who will get more than 100 points in one season.  
 
 ```{r boxplot for all goalier}
 #showing the win rate boxplot of the goalier of selected team
@@ -352,7 +355,7 @@ scatter1 <- ggplot(data=goalierecord, aes(x=data.mostGoalsAgainstOneGame, y=data
 scatter1+ geom_point(aes(color=data.activePlayer))+geom_smooth(aes(group=data.franchiseName), method=lm, color= "orange")+ labs(title = "Most saves vs Most goal against of goalier", x="Most Goal Against (in one game)", y="Most Saves (in one game)")+facet_grid(.~data.franchiseName)
 ```
 
-In this plot we can notice that **Tampa Bay Lightning's** goalier are worse savers but better goal maker than other teams' goalier.
+In this plot we can notice that **Tampa Bay Lightning's** goalier are worse savers but better goal maker than other teams' goalier.\
 
-#The End
-Thank you for reading my Prooject.
+
+Thank you for reading my Project.
